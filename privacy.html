@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dusk: Privacy Policy</title>
+<meta name="description" content="Dusk makes no network connections and collects nothing. This page lists every file it reads and every change it makes.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
+    <nav><a href="./">Home</a></nav>
+  </header>
+  <main class="doc">
+<h1>Dusk: Privacy Policy</h1>
+<p><em>Last updated 19 September 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
+<h2>The short version</h2>
+<p>Dusk switches your Mac and your websites between light and dark. It does this entirely on your computer. <strong>Dusk makes no network connections. It has no accounts, no analytics, no advertising, no crash reporting, and no servers. Nothing about you or your computer is sent to us or to anyone else.</strong></p>
+<h2>What the Mac app reads</h2>
+<p>To tell you which apps will follow the switch, Dusk looks at:</p>
+<ul><li><strong>The list of apps installed in your Applications folders</strong>, and each app's bundle information and
+ program header, to see whether it was built with dark mode support.
+</li><li><strong>Which apps are running</strong>, and which one is in front, to mark them in the list and to avoid reopening
+ an app while you are using it.
+</li><li><strong>Whether a microphone or camera is in use right now.</strong> This is a yes-or-no flag that macOS publishes.
+ Dusk reads it so it never reopens an app in the middle of a dictation or a call. Dusk never opens the
+ microphone or camera, cannot hear or see anything, and needs no permission for this.
+</li><li><strong>One theme setting inside three other apps' own settings files</strong>, read-only:
+<ul><li>Google Chrome: the appearance mode, and whether "Dusk for Chrome" is in its extension list.
+</li><li>Claude: the appearance choice.
+</li><li>Visual Studio Code: two appearance keys.
+</li><li>Any app you sync (see below): its one theme value.
+</li><li>Apps listed in <code>Recipes.json</code> with a "read" entry (currently Logi Options+): the one or two keys that
+ record its appearance choice. For Logi this is inside a database, which Dusk opens strictly read-only.
+</li></ul>
+</li></ul>
+<p>Those files contain other information that belongs to those apps. Dusk reads the files on your Mac, looks only for the keys named above, keeps nothing else, and never copies, stores or transmits their contents.</p>
+<h2>What the Mac app changes</h2>
+<ul><li><strong>The macOS appearance</strong> (light, dark, or automatic at sunset), which is the purpose of the app.
+</li><li><strong>Visual Studio Code's settings file</strong>, only when you press a button asking for it. Dusk changes the
+ appearance keys and keeps a backup copy of the original next to it.
+</li><li><strong>One appearance setting in an app you choose to keep light.</strong> When you pick "Always light" for an app,
+ Dusk writes a single standard macOS key (<code>NSRequiresAquaSystemAppearance</code>) into that app's preferences,
+ and removes it when you choose "Follow Dusk" again. Dusk keeps a list of every app it did this to, so
+ "Remove all" removes every one. It writes nothing else into other apps.
+</li><li><strong>The theme setting of an app you sync.</strong> A few apps have no "System" option of their own. When you press
+ "Sync with Dusk" for one, Dusk changes that app's own theme value in its settings file (for example
+ Wispr Flow's <code>config.json</code>), and again each time your Mac switches. It changes only that one value, keeps a
+ backup of the original file next to it, and stops when you choose otherwise or press "Remove all". Which
+ apps this applies to, and exactly which value, is listed in the app's <code>Recipes.json</code>.
+</li><li><strong>Quitting and reopening an app, only with your permission.</strong> A few apps read their look only when they
+ open. For each such app you choose whether Dusk may reopen it automatically, must ask you each time, or
+ never may. Dusk always quits an app the polite way, so the app can still ask you to save, and gives up
+ if it does not quit. It never does this while a microphone or camera is in use.
+</li><li><strong>Its own preferences</strong> (your schedule, trigger choice, per-app choices, reopen permissions and skipped setup items), stored
+ by macOS in your user account.
+</li><li><strong>A copy of the Chrome extension</strong> in <code>~/Library/Application Support/Dusk/</code>, when you ask to install it.
+</li></ul>
+<p>Dusk does not request Screen Recording, Accessibility, Input Monitoring, Camera, Microphone, Contacts, Location or Full Disk Access.</p>
+<h2>What the Chrome extension does</h2>
+<ul><li>It runs on the websites you visit so it can darken the ones that have no dark mode. To decide, it reads
+ <strong>the background colours of the page</strong>. It does not read, collect or store the text, forms, passwords,
+ cookies or any other content of pages.
+</li><li>It stores, <strong>only in your browser</strong>: your chosen mode, your per-site choices (always dark, always light, or off), and
+ a list of up to 300 website hostnames with whether each was light or dark, so repeat visits decide
+ instantly. Oldest entries are dropped automatically, and the popup's "Forget remembered sites" button clears the list at any time.
+</li><li><strong>Private (incognito) windows:</strong> Chrome keeps extensions out of them unless you allow it. If you allow
+ it, Dusk still darkens pages there but remembers nothing about them.
+</li><li>Permissions: <code>storage</code> (the settings above) and <code>activeTab</code> (so the popup can show the current site's
+ name). It loads no remote code.
+</li></ul>
+<h2>Removing your data</h2>
+<ul><li>Mac app: delete <code>~/Library/Application Support/Dusk/</code> and run <code>defaults delete dev.calvin.dusk</code>.
+ Press "Remove all" under Exceptions first, so any app you kept light goes back to normal.
+ Restore any <code>*.dusk-backup</code> file if you want an app's original settings back.
+</li><li>Extension: removing it from Chrome deletes everything it stored.
+</li></ul>
+<h2>Children</h2>
+<p>Dusk collects no personal information from anyone, including children.</p>
+<h2>Changes and contact</h2>
+<p>If this policy changes, the date above changes and the new text ships with the app. Contact: open an issue at <a href="https://github.com/calvinkim85/dusk-site/issues">https://github.com/calvinkim85/dusk-site/issues</a></p>
+  </main>
+  <footer><span>Dusk for Mac and Dusk for Chrome</span><span><a href="./">Home</a></span></footer>
+</div>
+</body>
+</html>
