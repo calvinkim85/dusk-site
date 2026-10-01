@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dusk: Privacy Policy</title>
-<meta name="description" content="Dusk makes no network connections and collects nothing. This page lists every file it reads and every change it makes.">
+<meta name="description" content="Privacy policy for the direct-download Mac edition and Dusk for Chrome. The App Store edition has a separate policy.">
 <link rel="icon" href="img/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,10 +15,11 @@
     <nav><a href="./">Home</a></nav>
   </header>
   <main class="doc">
+    <p class="policy-scope">This policy covers the direct-download Mac edition and Dusk for Chrome. It does not cover Dusk for Mac from the App Store; <a href="mac-app-store-privacy.html">read the App Store edition's separate privacy policy</a>.</p>
 <h1>Dusk: Privacy Policy</h1>
-<p><em>Last updated 19 September 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
+<p><em>Last updated 21 September 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
 <h2>The short version</h2>
-<p>Dusk switches your Mac and your websites between light and dark. It does this entirely on your computer. <strong>Dusk makes no network connections. It has no accounts, no analytics, no advertising, no crash reporting, and no servers. Nothing about you or your computer is sent to us or to anyone else.</strong></p>
+<p>Dusk switches your Mac and your websites between light and dark. It does this entirely on your computer. <strong>Dusk has no accounts, analytics, advertising, automatic crash reporting, or browsing-data collection.</strong> Appearance processing and optional Mac profile sharing happen locally. Configured release builds can contact their update feed to check for and download updates. You control automatic checks in Updates; manual checks also contact the feed. As with any download, its host receives normal connection data, including your IP address and request headers. Builds without valid updater configuration do not check.</p>
 <h2>What the Mac app reads</h2>
 <p>To tell you which apps will follow the switch, Dusk looks at:</p>
 <ul><li><strong>The list of apps installed in your Applications folders</strong>, and each app's bundle information and
@@ -57,26 +58,44 @@
  if it does not quit. It never does this while a microphone or camera is in use.
 </li><li><strong>Its own preferences</strong> (your schedule, trigger choice, per-app choices, reopen permissions and skipped setup items), stored
  by macOS in your user account.
+</li><li><strong>Saved appearance profiles</strong> in <code>~/Library/Application Support/Dusk/profiles.json</code>. Profiles contain
+ names, appearance/schedule choices, app identifiers and website hostname rules. They stay on your Mac.
+</li><li><strong>An optional Chrome native-host registration</strong> at
+ <code>~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.dusk.profiles.json</code>, created only
+ when you press Connect Mac. The read-only helper returns the active profile's browser settings to
+ Dusk's authorized extension. It does not accept commands to change apps or read arbitrary files.
 </li><li><strong>A copy of the Chrome extension</strong> in <code>~/Library/Application Support/Dusk/</code>, when you ask to install it.
 </li></ul>
 <p>Dusk does not request Screen Recording, Accessibility, Input Monitoring, Camera, Microphone, Contacts, Location or Full Disk Access.</p>
 <h2>What the Chrome extension does</h2>
 <ul><li>It runs on the websites you visit so it can darken the ones that have no dark mode. To decide, it reads
- <strong>the background colours of the page</strong>. It does not read, collect or store the text, forms, passwords,
- cookies or any other content of pages.
+ <strong>the colours of the page</strong>: background colours, text colours, and how much text an element paints (a
+ character count, never the characters themselves). It does not read, collect or store the text, forms,
+ passwords, cookies or any other content of pages.
 </li><li>It stores, <strong>only in your browser</strong>: your chosen mode, your per-site choices (always dark, always light, or off), and
- a list of up to 300 website hostnames with whether each was light or dark, so repeat visits decide
+ two lists of up to 300 hostname/appearance entries each with whether a page was light or dark, so repeat visits decide
  instantly. Oldest entries are dropped automatically, and the popup's "Forget remembered sites" button clears the list at any time.
 </li><li><strong>Private (incognito) windows:</strong> Chrome keeps extensions out of them unless you allow it. If you allow
- it, Dusk still darkens pages there but remembers nothing about them.
-</li><li>Permissions: <code>storage</code> (the settings above) and <code>activeTab</code> (so the popup can show the current site's
- name). It loads no remote code.
+ it, automatic detection does not remember those visits. Settings you explicitly save in the popup
+ are browser preferences and may persist after a private window closes.
+</li><li>Optional <strong>Mac profiles</strong>: after you connect, the extension reads a local profile snapshot roughly
+ every 30 seconds. It stores that snapshot and any local override rules in browser storage. The
+ helper receives only a fixed request for the active profile, not your current URL or page content.
+</li><li><strong>Problem reports</strong> are previewed locally and copied only when you press Copy. A hostname is optional.
+ No full URL, page text, screenshot or query string is included, and nothing is submitted automatically.
+</li><li>Permissions in the Chrome Web Store build: <code>storage</code> for settings, <code>activeTab</code> for the popup's current
+ website and status, and <code>scripting</code> to apply the same bundled page scripts to tabs that were already open
+ when Dusk is installed or updated (on the same websites those scripts already run on). A build that includes the optional local Mac connection additionally declares
+ <code>nativeMessaging</code> (to talk to the Dusk app on this computer) and <code>alarms</code> (to refresh that connection). It
+ loads no remote code. The extension does not make network requests.
 </li></ul>
 <h2>Removing your data</h2>
 <ul><li>Mac app: delete <code>~/Library/Application Support/Dusk/</code> and run <code>defaults delete dev.calvin.dusk</code>.
  Press "Remove all" under Exceptions first, so any app you kept light goes back to normal.
  Restore any <code>*.dusk-backup</code> file if you want an app's original settings back.
-</li><li>Extension: removing it from Chrome deletes everything it stored.
+</li><li>Remove the optional native-host registration by deleting
+ <code>~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.dusk.profiles.json</code>.
+</li><li>Extension: removing it from Chrome deletes its stored profiles, settings and remembered appearances.
 </li></ul>
 <h2>Children</h2>
 <p>Dusk collects no personal information from anyone, including children.</p>
