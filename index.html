@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dusk: one switch for light and dark on your Mac</title>
-<meta name="description" content="Dusk for Mac and Dusk for Chrome are in development and not yet available. Features vary by edition.">
+<meta name="description" content="Dusk for Mac switches light and dark from your menu bar. Dusk for Chrome helps compatible websites follow your appearance, with per-site controls.">
 <link rel="icon" href="img/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -19,10 +19,10 @@
     <div class="hero">
       <div>
         <h1>Light and dark, on your terms.</h1>
-        <p class="lede">Choose the Dusk edition that fits how you use your Mac, or run Dusk for Chrome by itself. Each edition has its own features and privacy policy.</p>
+        <p class="lede">Switch your Mac between light and dark from the menu bar, or run Dusk for Chrome by itself for compatible websites.</p>
         <div class="cta">
-          <span class="btn primary" aria-disabled="true">Dusk for Chrome: coming soon</span>
-          <span class="btn ghost" aria-disabled="true">Dusk for Mac editions: coming soon</span>
+          <a class="btn primary" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.4/Dusk-1.0.4.dmg">Download Dusk for Mac</a>
+          <a class="btn ghost" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Get Dusk for Chrome</a>
         </div>
         <p class="note">No account or analytics. See each edition's policy for its data and network use.</p>
       </div>
@@ -31,11 +31,11 @@
 
     <section id="editions">
       <h2 id="how">Choose your edition</h2>
-      <p class="sub">The Mac editions are separate apps with different features. Dusk for Chrome can also run on its own.</p>
+      <p class="sub">Download the Mac app directly, or use the Chrome extension on its own. Both are free.</p>
       <div class="grid">
-        <div class="card"><h3>Dusk for Mac · App Store</h3><p>Switch macOS between Light and Dark from the menu bar, manually or on your own daily hours. Requires macOS 14 or later. No app inventory, website controls, or sunset schedule.</p><p><a href="mac-app-store-support.html">Support</a> · <a href="mac-app-store-privacy.html">Privacy policy</a></p><span class="status">In development · App Store availability is not confirmed</span></div>
-        <div class="card"><h3>Dusk for Mac · direct download</h3><p>The separate Mac edition includes app inventory and setup guidance, per-app choices, sunset scheduling, and optional browser profile sync. Its updater can contact the update feed.</p><p><a href="privacy.html">Privacy policy</a></p><span class="status">Coming soon</span></div>
-        <div class="card"><h3>Dusk for Chrome</h3><p>Run the Chrome extension on its own to darken compatible websites and set per-site choices. An optional extension build can sync profiles with the direct-download Mac edition; the Chrome Web Store build does not include this connection.</p><p><a href="privacy.html">Privacy policy</a></p><span class="status">Coming soon</span></div>
+        <div class="card"><h3>Dusk for Mac · App Store</h3><p>The App Store edition is not available. Use the direct Mac download for the menu-bar app.</p><p><a href="mac-app-store-support.html">Support</a> · <a href="mac-app-store-privacy.html">Privacy policy</a></p><span class="status">Not available</span></div>
+        <div class="card"><h3>Dusk for Mac · direct download</h3><p>Light, Dark and Auto from your menu bar, with app setup guidance, per-app choices and scheduling. Requires macOS 14 or later; supports Apple silicon and Intel Macs. Its updater can contact the update feed.</p><p><a href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.4/Dusk-1.0.4.dmg">Download version 1.0.4</a> · <a href="privacy.html">Privacy policy</a></p></div>
+        <div class="card"><h3>Dusk for Chrome</h3><p>Run the Chrome extension on its own to darken compatible websites and set per-site choices. The Chrome Web Store build does not include the optional Mac profile connection.</p><p><a href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Open Chrome Web Store</a> · <a href="privacy.html">Privacy policy</a></p></div>
       </div>
     </section>
 
@@ -43,10 +43,10 @@
       <div class="two">
         <div>
           <h2>Websites, too</h2>
-          <p class="sub">Dusk for Chrome follows your browser's light or dark setting, darkens sites that have no dark mode, and leaves sites with a good dark mode alone. It works without either Mac app.</p>
+          <p class="sub">Dusk for Chrome follows your browser's light or dark setting and darkens compatible sites that have no dark mode. It works without the Mac app.</p>
           <ul class="plain">
-            <li>Photos and video keep their natural colours.</li>
-            <li>Set one site always dark, always light, or off, from the popup.</li>
+            <li>Designed to preserve photo and video colours; switch it off for sites that look wrong.</li>
+            <li>Use the popup to control individual sites. Available options depend on your installed version.</li>
             <li>Automatic detection does not remember visits in Incognito windows. Settings you explicitly save in the popup may remain in Chrome.</li>
             <li>It works by itself. The Mac app is not required.</li>
           </ul>
@@ -69,12 +69,12 @@
 
     <section id="privacy">
       <h2>Privacy depends on the edition</h2>
-      <p class="sub">The direct-download Mac app can check its update feed; you can turn automatic checks off. The Chrome extension makes no network requests. Read the <a href="privacy.html">direct-download and Chrome privacy policy</a> or the separate <a href="mac-app-store-privacy.html">App Store edition privacy policy</a>.</p>
+      <p class="sub">The Mac app can check its update feed; you can turn automatic checks off. The Chrome extension processes appearance locally and may re-fetch a page's images to inspect their colours, without cookies or a referrer. Read the <a href="privacy.html">direct-download and Chrome privacy policy</a> for details.</p>
     </section>
   </main>
 
   <footer>
-    <span>Dusk for Mac and Dusk for Chrome · Coming soon</span>
+    <span>Dusk for Mac and Dusk for Chrome · Free</span>
     <span><a href="mac-app-store-support.html">App Store support</a> · <a href="mac-app-store-privacy.html">App Store privacy</a> · <a href="privacy.html">Direct-download and Chrome privacy</a></span>
   </footer>
 </div>

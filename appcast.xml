@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Dusk</title>
+        <item>
+            <title>1.0.4</title>
+            <pubDate>Mon, 05 Oct 2026 23:03:13 -0500</pubDate>
+            <sparkle:version>119</sparkle:version>
+            <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+            <enclosure url="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.4/Dusk-1.0.4.dmg" length="4468833" type="application/octet-stream" sparkle:edSignature="JIinYgVt3O9/OMJrxAQlpzb6LJhZeNiQqPgJFdFnLflovlm8aIRIEXVPyrGqq7WoXy9qTy68twB+ehWXtuxCDQ=="/>
+        </item>
+    </channel>
+</rss>
