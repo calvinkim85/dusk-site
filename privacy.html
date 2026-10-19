@@ -17,7 +17,7 @@
   <main class="doc">
     <p class="policy-scope">This policy covers the direct-download Mac edition and Dusk for Chrome. It does not cover Dusk for Mac from the App Store; <a href="mac-app-store-privacy.html">read the App Store edition's separate privacy policy</a>.</p>
 <h1>Dusk: Privacy Policy</h1>
-<p><em>Last updated 16 October 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
+<p><em>Last updated 19 October 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
 <h2>The short version</h2>
 <p>Dusk switches your Mac and your websites between light and dark. Appearance analysis happens on your computer. <strong>Dusk has no accounts, analytics, advertising, or automatic crash reporting.</strong> It stores the browser settings and remembered hostnames described below locally; it does not send them to Dusk. Appearance processing and optional Mac profile sharing happen locally. Dusk for Mac checks Dusk's update feed once a day while "Check for updates automatically" is on (you control this in Updates), and when you press "Check now". It contacts only that feed, to check for and download updates. As with any download, its host receives normal connection data, including your IP address and request headers.</p>
 <h2>What the Mac app reads</h2>
@@ -72,9 +72,11 @@
 </li></ul>
 <h2>Permissions</h2>
 <p>Dusk does not request Screen Recording, Accessibility, Input Monitoring, Camera, Microphone, Contacts or Location. It uses the following only if you turn them on:</p>
-<ul><li><strong>Automation (System Events), only as a fallback.</strong> Dusk changes the appearance with a direct macOS call.
- If that call is not available on your Mac, Dusk asks System Events to set light or dark instead, and
- macOS asks for your permission first. Dusk uses it only to set the system appearance.
+<ul><li><strong>Automation (System Events).</strong> Dusk may ask System Events to set light or dark: the same switch System
+ Settings uses, so apps that read the saved setting, such as KakaoTalk, follow too. macOS asks for your
+ permission the first time. Depending on the version, Dusk uses it for each Light, Dark or own-hours change,
+ or only when its direct macOS call is not available. Dusk uses it only to set the system appearance.
+ macOS's own Auto (sunset to sunrise) is turned on or off with a direct macOS call that needs no permission.
 </li><li><strong>Files &amp; Folders, one app at a time (macOS 27).</strong> macOS protects the settings of apps such as Preview,
  so Dusk cannot change or read them on its own. macOS shows no prompt for this. When you choose "Always
  light" for such an app, Dusk tells you, and you turn that app on under Dusk in System Settings →
@@ -111,8 +113,13 @@
  website" (it holds that site's hostname and its previous rule), and two lists of up to 300 entries
  each: sites that measured light and sites that measured dark. These can speed up decisions on repeat
  visits. Each entry is a site (its registered domain, such as example.com), whether your system was light or dark when the site was measured,
- and when it was first recorded. Oldest entries are dropped automatically, and the popup's "Forget
+ and when it was last seen (updated at most once a day). The entries seen longest ago are dropped automatically, and the popup's "Forget
  remembered sites" button clears both lists at any time.
+</li><li>For a host where you explicitly choose <strong>Standard</strong>, a remembered appearance may create a
+ bundled content-script registration in this browser for that exact hostname. Registrations contain
+ appearance hints, not page content or URL paths. Current settings are checked before rendering;
+ Preserve colors is the default and does not use these registrations. Turning Dusk off, switching the
+ renderer, or clearing remembered sites reconciles these registrations locally. Nothing is sent to Dusk.
 </li><li><strong>Private (incognito) windows:</strong> Chrome keeps extensions out of them unless you allow it. If you allow
  it, automatic detection does not remember those visits. Choices you make in the popup, such as site
  rules, are kept after the private window closes.
@@ -127,7 +134,8 @@
  <code>storage</code> for settings; <code>activeTab</code> for the popup's current website and status; and <code>scripting</code> to
  apply the same bundled page scripts to tabs that were already open when Dusk is installed, updated or
  turned back on, or when Chrome starts (on the same websites those scripts already run on). Frames that
- already run Dusk are skipped. The popup also uses <code>scripting</code> to read the current tab's document type
+ already run Dusk are skipped. <code>scripting</code> also manages the bundled, exact-host appearance hints
+ described above. The popup also uses <code>scripting</code> to read the current tab's document type
  when Dusk in that page does not answer, so it can tell you that Dusk leaves documents such as PDFs and
  images alone. A build that includes the optional local Mac connection additionally declares
  <code>nativeMessaging</code> (to talk to the Dusk app on this computer) and <code>alarms</code> (to refresh that connection). It
