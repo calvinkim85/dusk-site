@@ -3,80 +3,225 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dusk: one switch for light and dark on your Mac</title>
-<meta name="description" content="Dusk for Mac switches light and dark from your menu bar. Dusk for Chrome helps compatible websites follow your appearance, with per-site controls.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1d45" media="(prefers-color-scheme: dark)">
+<title>Dusk: one switch for your Mac apps and websites</title>
+<meta name="description" content="Dusk is one switch for light and dark. Dusk for Mac changes your Mac and the apps that follow it, from the menu bar. Dusk for Chrome darkens websites that have no dark mode and keeps photos in their own colours. Free, with no account.">
+<link rel="canonical" href="https://calvinkim85.github.io/dusk-site/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calvinkim85.github.io/dusk-site/">
+<meta property="og:title" content="Dusk: one switch for your Mac apps and websites">
+<meta property="og:description" content="Light or dark in one click, for your Mac, the apps that follow it, and websites that have no dark mode. Free, with no account.">
+<meta property="og:image" content="https://calvinkim85.github.io/dusk-site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A headline reading: Your Mac apps and websites. One switch. One click. Below it, a Google Doc and Dusk's switch, light on the left of a dividing line and dark on the right.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/icon.png">
+<link rel="preload" href="fonts/outfit-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="home.css">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('sweep');setTimeout(function(){document.documentElement.classList.remove('sweep')},1500)}</script>
 </head>
-<body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
-    <nav aria-label="Main navigation"><a href="#editions">Editions</a><a href="#websites">Chrome</a><a href="mac-app-store-support.html">App Store support</a><a href="privacy.html">Privacy</a></nav>
-  </header>
+<body class="home">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><radialGradient id="moon-body" cx="35%" cy="55%" r="75%"><stop offset="0" stop-color="#fbf8ff"/><stop offset=".6" stop-color="#ddd2ff"/><stop offset="1" stop-color="#a48ff0"/></radialGradient></defs>
+  <symbol id="moon-mascot" viewBox="0 0 200 200">
+    <ellipse cx="74" cy="184" rx="15" ry="9" fill="#8d78e6"/><ellipse cx="116" cy="181" rx="15" ry="9" fill="#8d78e6"/>
+    <path d="M101 16 A84 84 0 1 0 181.6 119.6 A66 66 0 1 1 101 16 Z" fill="url(#moon-body)" stroke="#5b4bb5" stroke-width="5" stroke-linejoin="round"/>
+    <g stroke="#7a66d8" stroke-width="10" stroke-linecap="round" fill="none"><path d="M26 124 q-16 6 -18 22"/><path d="M146 150 q16 8 26 2"/></g>
+    <g fill="#ffb6c8" opacity=".75"><ellipse cx="42" cy="118" rx="11" ry="7"/><ellipse cx="102" cy="142" rx="11" ry="7"/></g>
+    <g stroke="#262046" stroke-width="6" stroke-linecap="round" fill="none"><path d="M39 98 q11 -13 22 0"/><path d="M81 122 q11 -13 22 0"/><path d="M52 128 q14 18 30 7"/></g>
+  </symbol>
+</svg>
 
-  <main>
-    <div class="hero">
-      <div>
-        <h1>Light and dark, on your terms.</h1>
-        <p class="lede">Switch your Mac between light and dark from the menu bar, or run Dusk for Chrome by itself for compatible websites.</p>
-        <div class="cta">
-          <a class="btn primary" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg">Download Dusk for Mac</a>
-          <a class="btn ghost" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Get Dusk for Chrome</a>
-        </div>
-        <p class="note">No account or analytics. See each edition's policy for its data and network use.</p>
+<header class="top">
+  <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt=""><span>Dusk</span></a>
+  <nav aria-label="Main navigation"><a href="#how">How it works</a><a class="nav-wide" href="#does">What it does</a><a class="nav-narrow" href="#privacy">Privacy</a><a href="#editions">Get Dusk</a></nav>
+</header>
+
+<main>
+  <div class="dusk" id="dusk">
+    <div class="dusk-sky"></div>
+
+    <div class="dusk-copy">
+      <h1 class="couplet"><span class="q blend">Your Mac apps<br> and websites.</span> <span class="a blend">One switch.<br> One click.</span></h1>
+      <p class="lede blend">Press Dark once. Your Mac, the apps that follow it and websites that stay white go dark together.</p>
+      <div class="get get-mac">
+        <a class="add" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Download for Mac</a>
+        <span class="fine blend">Free. No account. macOS 14 or later.</span>
       </div>
-      <figure class="hero-shot"><img class="shot wide" src="img/switch-dark.png" width="480" height="252" alt="The direct-download Dusk for Mac window: a Light, Dark and Auto switch, set to follow sunset and sunrise."><figcaption>Direct-download Mac edition</figcaption></figure>
+      <div class="get get-chrome">
+        <a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Add to Chrome</a>
+        <span class="fine blend">Free. No account. For Chrome on a computer.</span>
+      </div>
     </div>
 
-    <section id="editions">
-      <h2 id="how">Choose your edition</h2>
-      <p class="sub">Download the Mac app directly, or use the Chrome extension on its own. Both are free.</p>
-      <div class="grid">
-        <div class="card"><h3>Dusk for Mac · App Store</h3><p>The App Store edition is not available. Use the direct Mac download for the menu-bar app.</p><p><a href="mac-app-store-support.html">Support</a> · <a href="mac-app-store-privacy.html">Privacy policy</a></p><span class="status">Not available</span></div>
-        <div class="card"><h3>Dusk for Mac · direct download</h3><p>Light, Dark and Auto from your menu bar, with app setup guidance, per-app choices and scheduling. Requires macOS 14 or later; supports Apple silicon and Intel Macs. Its updater can contact the update feed.</p><p><a href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg">Download version 1.0.5</a> · <a href="privacy.html">Privacy policy</a></p></div>
-        <div class="card"><h3>Dusk for Chrome</h3><p>Run the Chrome extension on its own to darken compatible websites and set per-site choices. The Chrome Web Store build does not include the optional Mac profile connection.</p><p><a href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Open Chrome Web Store</a> · <a href="privacy.html">Privacy policy</a></p></div>
+    <figure class="compare">
+      <div class="compare-head">
+        <span class="side blend" data-x="100">Light</span>
+        <fieldset class="sites">
+          <legend class="vh">Example page</legend>
+          <label><input type="radio" name="site" id="site-docs" checked>Google Docs</label>
+          <label><input type="radio" name="site" id="site-wiki">Wikipedia</label>
+          <label><input type="radio" name="site" id="site-so">Stack Overflow</label>
+        </fieldset>
+        <span class="side side-dark blend" data-x="0">Dark</span>
       </div>
-    </section>
 
-    <section id="websites">
-      <div class="two">
-        <div>
-          <h2>Websites, too</h2>
-          <p class="sub">Dusk for Chrome follows your browser's light or dark setting and darkens compatible sites that have no dark mode. It works without the Mac app.</p>
-          <ul class="plain">
-            <li>Designed to preserve photo and video colours; switch it off for sites that look wrong.</li>
-            <li>Use the popup to control individual sites. Available options depend on your installed version.</li>
-            <li>Automatic detection does not remember visits in Incognito windows. Settings you explicitly save in the popup may remain in Chrome.</li>
-            <li>It works by itself. The Mac app is not required.</li>
-          </ul>
+      <div class="panes" id="dusk-panes">
+        <div class="layer">
+          <picture class="s-docs"><source media="(min-width: 761px)" srcset="img/hero-docs-light.webp"><img src="img/hero-docs-light-s.webp" width="800" height="833" alt="A Google Doc as a white page." fetchpriority="high" draggable="false"></picture>
+          <picture class="s-wiki"><source media="(min-width: 761px)" srcset="img/hero-wiki-light.webp"><img src="img/hero-wiki-light-s.webp" width="800" height="833" alt="A Wikipedia article as a white page with a night photo." loading="lazy" fetchpriority="low" draggable="false"></picture>
+          <picture class="s-so"><source media="(min-width: 761px)" srcset="img/hero-so-light.webp"><img src="img/hero-so-light-s.webp" width="800" height="833" alt="A Stack Overflow question as a white page with a pale code block." loading="lazy" fetchpriority="low" draggable="false"></picture>
+          <img class="panel" src="img/switch-panel-light.webp" width="960" height="344" alt="Dusk for Mac's switch, set to Light." draggable="false">
         </div>
-        <img class="shot wide" src="img/website-after.png" width="640" height="400" alt="A website with no dark mode of its own, darkened by Dusk for Chrome.">
+        <div class="layer layer-night">
+          <picture class="s-docs"><source media="(min-width: 761px)" srcset="img/hero-docs-dark.webp"><img src="img/hero-docs-dark-s.webp" width="800" height="833" alt="The same Google Doc with Dusk: black paper and white text." fetchpriority="high" draggable="false"></picture>
+          <picture class="s-wiki"><source media="(min-width: 761px)" srcset="img/hero-wiki-dark.webp"><img src="img/hero-wiki-dark-s.webp" width="800" height="833" alt="The same article with Dusk: a dark page and light text, with the photo in its own colours." loading="lazy" fetchpriority="low" draggable="false"></picture>
+          <picture class="s-so"><source media="(min-width: 761px)" srcset="img/hero-so-dark.webp"><img src="img/hero-so-dark-s.webp" width="800" height="833" alt="The same question with Dusk: a dark page with a dark code block." loading="lazy" fetchpriority="low" draggable="false"></picture>
+          <img class="panel" src="img/switch-panel-dark.webp" width="960" height="344" alt="The same switch, set to Dark." draggable="false">
+        </div>
       </div>
-    </section>
 
-    <section id="honest">
-      <h2>What Dusk cannot do</h2>
-      <div class="honest">
-        <ul class="plain">
-          <li>macOS does not let one standard Mac app stay dark while the rest is light. Dusk can keep such an app light, but not dark.</li>
+      <figcaption class="blend"><span class="drag-hint">Drag the line, or press Light or Dark. </span>The websites are real captures with Dusk for Chrome 0.2.5. Wikipedia and Stack Overflow have dark modes you can turn on yourself, but they stay white when your Mac goes dark. The switch is Dusk for Mac's own, drawn from the app's code. Some pages stay partly light and some apps have one fixed look: see <a href="#honest">what Dusk cannot do</a>.</figcaption>
+    </figure>
+
+    <input class="range" id="dusk-range" type="range" min="0" max="100" step="1" value="50" aria-label="Compare the page in Light and in Dark">
+    <div class="line"></div>
+    <div class="knob" id="dusk-knob"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd97c"/><stop offset="1" stop-color="#fdbc59"/></linearGradient><linearGradient id="moon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecfa"/><stop offset="1" stop-color="#d2d8f2"/></linearGradient></defs><circle cx="30" cy="30" r="30" fill="#1a1d45"/><path d="M30 3.5a26.5 26.5 0 0 0 0 53z" fill="url(#sun)"/><path d="M30 3.5a26.5 26.5 0 0 1 0 53z" fill="url(#moon)"/><path d="M21 21l-9 9 9 9M39 21l9 9-9 9" fill="none" stroke="#1a1d45" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </div>
+
+  <section id="why" class="wrap">
+    <h2>One switch covers both</h2>
+    <ul class="ways">
+      <li>
+        <h3>Your Mac's dark mode</h3>
+        <div class="cells"><p class="cell on">Your Mac apps</p><p class="cell off">Not websites that have no dark mode</p></div>
+      </li>
+      <li>
+        <h3>A dark mode browser extension</h3>
+        <div class="cells"><p class="cell off">Not your Mac apps</p><p class="cell on">Websites</p></div>
+      </li>
+      <li class="ways-dusk">
+        <h3>Dusk</h3>
+        <div class="cells"><p class="cell on both">Both, from one switch <svg class="mascot" aria-hidden="true"><use href="#moon-mascot"/></svg></p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="how" class="wrap">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><h3>Get Dusk for Mac</h3><p>It lives in your menu bar. Most apps need nothing, because they follow your Mac by themselves. A few need a one-time setting, and Dusk's checklist shows you where.</p></li>
+      <li><h3>Add Dusk for Chrome</h3><p>It darkens websites that have no dark mode when your browser is dark. To follow your Mac, keep Settings → Appearance → Mode on Device in Chrome.</p></li>
+      <li><h3>Press Light or Dark</h3><p>One click changes your Mac, the apps that follow it and those websites. Or choose Auto: sunset to sunrise, or your own hours.</p></li>
+    </ol>
+    <p class="aside">Only want websites? Dusk for Chrome works by itself, without the Mac app, and its popup can keep pages dark while your computer is light. <a href="chrome-help.html">Chrome help</a> covers the rest.</p>
+  </section>
+
+  <section id="does" class="wrap">
+    <h2>What it does</h2>
+    <div class="does">
+      <div class="does-pair">
+        <div>
+          <figure class="shot-box"><img src="img/switch-dark.png" width="960" height="505" alt="The direct-download Dusk for Mac window: a Light, Dark and Auto switch, set to follow sunset and sunrise." loading="lazy"></figure>
+          <h3>Your Mac, from the menu bar</h3>
+          <p>Light, Dark or Auto, with a checklist for apps that need a one-time setting. Keep one app dark or light whatever the switch says, where that app allows it. Dusk reopens an app only with your permission.</p>
+        </div>
+        <div>
+          <figure class="shot-box"><img src="img/code-dark.webp" width="906" height="580" alt="A Stack Overflow code block on a darkened page, with light text." loading="lazy"></figure>
+          <h3>Documents, articles, shops and web apps</h3>
+          <p>Google Docs and Sheets go dark with the page, and so do long articles, shopping pages and web apps. Menus, hover highlights and focused fields stay readable. A site that already shows the look you asked for keeps its own theme.</p>
+        </div>
+      </div>
+      <div class="does-row">
+        <div class="photo"><img src="img/photo-light.webp" width="1044" height="312" alt="A Wikipedia page split by a line: white on the left, dark on the right, with its night photo the same on both sides." loading="lazy"><img src="img/photo-dark.webp" width="1044" height="312" alt="" loading="lazy"></div>
+        <div>
+          <h3>Photos keep their colours</h3>
+          <p>Dusk changes a page's grey surfaces and its text, not your pictures. Photos and video keep their own colours, though some images or embeds may still look wrong. A picture placed inside a Google Doc changes with the paper.</p>
+        </div>
+      </div>
+      <div class="does-row does-row-flip">
+        <div>
+          <h3>Your choice, site by site</h3>
+          <p>In the popup, choose Follow, Dark, Light or Off for the site you are on. If a page looks wrong, Restore this website puts it back, with an Undo.</p>
+          <p>It works the other way too: when you switch to light, Dusk can lighten many dark-only sites.</p>
+        </div>
+        <figure class="popup-shot"><picture><source media="(prefers-color-scheme: dark)" srcset="img/popup-dark.webp"><img src="img/popup-light.webp" width="736" height="500" alt="Dusk's popup, showing the choices Follow, Dark, Light and Off for docs.google.com, and a button labelled Restore this website." loading="lazy"></picture></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="honest" class="wrap">
+    <h2>What Dusk cannot do</h2>
+    <div class="limits">
+      <div>
+        <h3>On a Mac</h3>
+        <ul>
           <li>Some apps, such as Calculator or Minecraft, have one fixed look. Nothing can change that, and Dusk says so.</li>
-          <li>When you choose Always Light, the direct-download edition adds or removes a standard macOS preference for that app. Separately, optional sync changes one documented theme value in supported apps' settings files and keeps a backup.</li>
-          <li>Pages that use colour to carry meaning, such as charts and maps, can look wrong when darkened. Switch Dusk off for that site.</li>
+          <li>A few apps have their own theme setting fixed to Light or Dark. They need a one-time change to System inside the app, and Dusk's checklist shows where.</li>
+          <li>A few apps only read their look when they open, so they must reopen to change. Dusk does that only with your permission, app by app.</li>
+          <li>macOS does not let one standard Mac app stay dark while the rest is light. Dusk can keep such an app light, but not dark.</li>
+          <li>When you choose to keep an app light, the direct-download edition adds or removes a standard macOS preference for that app. Separately, optional sync changes one documented theme value in supported apps' settings files and keeps a backup.</li>
+          <li>The App Store edition is not released yet, so the download on this page is the direct-download edition.</li>
         </ul>
       </div>
-    </section>
+      <div>
+        <h3>In Chrome</h3>
+        <ul>
+          <li>To follow your Mac, Chrome's Settings → Appearance → Mode must be Device. If it is Light or Dark, websites get that, whatever your computer shows.</li>
+          <li>Coloured areas, such as a brand's banner or a coloured page background, keep their colour, so some pages stay partly light in dark mode.</li>
+          <li>In light mode, photo-heavy pages, such as streaming and game landing pages, may stay mostly dark, because Dusk keeps pictures as they are.</li>
+          <li>Some chart lines drawn in SVG, and outlines drawn as shadows, are not recoloured, so a dark line can stay dark on a darkened page.</li>
+          <li>Chrome's own pages, such as settings and the Chrome Web Store, cannot be changed by any extension. PDFs and images opened in Chrome's own viewer are left as they are.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="privacy">
-      <h2>Privacy depends on the edition</h2>
-      <p class="sub">The Mac app can check its update feed; you can turn automatic checks off. The Chrome extension processes appearance locally and may re-fetch a page's images to inspect their colours, without cookies or a referrer. Read the <a href="privacy.html">direct-download and Chrome privacy policy</a> for details.</p>
-    </section>
-  </main>
+  <section id="privacy" class="wrap">
+    <div class="private">
+      <h2>No account. No analytics.</h2>
+      <div>
+        <ul>
+          <li>Dusk for Mac keeps your settings on your Mac. It can check its update feed; you can turn automatic checks off.</li>
+          <li>The direct-download edition's first switch may ask to control System Events, which it uses for the system appearance switch.</li>
+          <li>Dusk for Chrome processes appearance locally and may re-fetch a page's images to inspect their colours, without cookies or a referrer. The image's host sees a normal request, including your IP address and the page's site.</li>
+          <li>Its settings and remembered sites stay in this Chrome profile on this computer, and nothing is sent to Dusk.</li>
+          <li>Chrome's install prompt says Dusk can read and change your data on websites, because it recolours pages as they load. It does not collect or store page text, form data, cookies or credentials.</li>
+          <li>Automatic detection does not remember visits in Incognito windows. Settings you explicitly save in the popup may remain in Chrome.</li>
+        </ul>
+        <p class="policies">Read the <a href="privacy.html">direct-download and Chrome privacy policy</a>, or the <a href="mac-app-store-privacy.html">App Store edition's policy</a>.</p>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <span>Dusk for Mac and Dusk for Chrome · Free</span>
-    <span><a href="mac-app-store-support.html">App Store support</a> · <a href="mac-app-store-privacy.html">App Store privacy</a> · <a href="privacy.html">Direct-download and Chrome privacy</a></span>
-  </footer>
-</div>
+  <div class="dusk dusk-end" id="editions">
+    <div class="dusk-sky"></div>
+    <div class="line"></div>
+    <svg class="mascot moon" aria-hidden="true"><use href="#moon-mascot"/></svg>
+    <h2 class="blend">Try it tonight.</h2>
+    <div class="dusk-copy">
+      <div class="get get-mac">
+        <a class="add" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Download for Mac</a>
+        <p class="fine blend"><strong>Dusk for Mac, version 1.0.5.</strong> Light, Dark and Auto from your menu bar, with app setup guidance, per-app choices and scheduling. Free. Requires macOS 14 or later; supports Apple silicon and Intel Macs. Its updater can contact the update feed.</p>
+      </div>
+      <div class="get get-chrome">
+        <a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Add to Chrome</a>
+        <p class="fine blend"><strong>Dusk for Chrome.</strong> Darkens websites that have no dark mode while photos keep their colours. Free. It works by itself; the Mac app is not required. The Chrome Web Store build does not include the optional Mac profile connection.</p>
+      </div>
+    </div>
+    <p class="store-note blend">An <a href="mac-app-store.html">App Store edition</a> is on its way and not released yet. It offers Light, Dark and a daily schedule using two Apple Shortcuts you create and verify. <a href="mac-app-store-support.html">App Store support</a>.</p>
+  </div>
+</main>
+
+<footer class="wrap">
+  <span>Dusk for Mac and Dusk for Chrome</span>
+  <nav aria-label="Footer"><a href="chrome-help.html">Chrome help</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="mac-app-store.html">App Store edition</a><a href="mac-app-store-support.html">App Store support</a><a href="mac-app-store-privacy.html">App Store privacy</a><a href="chrome-help.html#contact">Contact</a></nav>
+  <p>The sites shown are examples. Dusk is not affiliated with, endorsed by or sponsored by them, and their names are trademarks of their owners.</p>
+</footer>
+<script defer src="js/slider.js"></script>
 </body>
 </html>

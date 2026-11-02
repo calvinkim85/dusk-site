@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dusk for Chrome: help</title>
+<meta name="description" content="Troubleshooting for Dusk for Chrome: a site that looks wrong, pages that stay light or dark, Google Docs and Sheets, Incognito, problem reports and uninstalling.">
+<link rel="icon" href="img/icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
+    <nav><a href="./">Home</a><a href="privacy.html">Privacy</a></nav>
+  </header>
+  <main class="doc">
+    <h1>Dusk for Chrome: help</h1>
+    <p><em>Written for Dusk for Chrome 0.2.5. Updated 26 October 2026.</em></p>
+    <p>Click the Dusk icon in Chrome’s toolbar to open its popup. If you don’t see it, open Chrome’s Extensions menu (the puzzle piece) and pin Dusk. The <a href="#reports">problem report</a> shows which version you have.</p>
+
+    <h2>A site looks wrong</h2>
+    <p>Press <strong>Restore this website</strong>. Dusk saves <strong>Off</strong> for that site, and the page, with the frames embedded in it, goes back to its own look. <strong>Undo restore</strong> brings back the setting you had before.</p>
+    <p>You can also choose a rule under <strong>This site:</strong></p>
+    <ul>
+      <li><strong>Follow</strong>: the site follows your choice under <strong>Website appearance</strong> (<strong>Follow system</strong>, <strong>Always dark</strong> or <strong>Off</strong>).</li>
+      <li><strong>Dark</strong> or <strong>Light</strong>: always request that look here, even when <strong>Website appearance</strong> is <strong>Off</strong>.</li>
+      <li><strong>Off</strong>: Dusk leaves this website untouched.</li>
+    </ul>
+    <p>A rule covers exactly the name shown after <strong>This site:</strong>, such as <code>www.example.com</code>; <code>example.com</code> would need its own. Your rules are listed under <strong>Your site choices</strong>; <strong>Follow again</strong> removes one.</p>
+    <p><strong>Page colors</strong> chooses how Dusk changes this site:</p>
+    <ul>
+      <li><strong>Preserve colors (default)</strong> changes grey backgrounds, and the colour of text that would otherwise be hard to read. Photos, videos and coloured areas keep their colours. If it cannot change a page safely, for example because the page’s whole background is a colour, the page keeps its original look and the popup says so.</li>
+      <li><strong>Standard</strong> is a compatibility option for one site. It flips the colours of the whole page, then flips photos, videos and embedded frames back. It may work where Preserve colors can’t, but it can change the colours in pictures. Dusk never switches to Standard by itself.</li>
+    </ul>
+
+    <h2>A page stays dark in Light, or light in Dark</h2>
+    <p>Dusk changes a page only when it shows the opposite of what you asked for, and only where it can do that safely. A site with its own light and dark themes switches by itself, and Dusk leaves its theme alone. Check these in order:</p>
+    <ul>
+      <li><strong>Website appearance.</strong> <strong>Always dark</strong> keeps pages dark even when your computer is light. <strong>Off</strong> leaves every site alone except those you set to Dark or Light.</li>
+      <li><strong>This site:</strong> <strong>Dark</strong>, <strong>Light</strong> and <strong>Off</strong> apply whatever your computer shows. To keep a dark site dark while your computer is light, choose <strong>Dark</strong> for it.</li>
+      <li><strong>Chrome’s own setting.</strong> <strong>Follow system</strong> follows the light or dark setting Chrome gives websites. If Chrome’s Settings → Appearance → Mode is Light or Dark instead of Device, websites get that, whatever your computer shows.</li>
+      <li><strong>The line under Page colors.</strong> “Preserve colors can’t change this page” means the page keeps its original look; <strong>Standard</strong> may work there. “Original appearance restored because controls may be unreadable” means Dusk stepped back; it tries again when you reload the page, switch appearance or change a Dusk setting. For “Page status not verified”, reload the tab once.</li>
+      <li><strong>Things that keep their colour by design.</strong> Photos, videos and embedded video players keep their colours, and so do coloured areas such as a brand’s banner or a coloured page background. Dusk changes grey surfaces and text, so some pages stay partly light in Dark. In Light, photo-heavy pages, such as streaming and game landing pages, may stay mostly dark. If Dusk cannot tell whether a page is light or dark, it leaves the page alone rather than guess.</li>
+      <li><strong>Pages no extension can change.</strong> Chrome’s own pages, such as Settings and the Chrome Web Store, show “not a supported website” in the popup. PDFs and images open in Chrome’s own viewer are left as they are.</li>
+    </ul>
+
+    <h2>Google Docs and Sheets</h2>
+    <p>Docs draws each page, and Sheets its grid, as a picture rather than with ordinary page colours. With <strong>Preserve colors</strong>, Dusk darkens that paper along with the rest of the page. A picture inside a document is drawn on the same paper, so it changes colour with it. To see a document exactly as written, choose <strong>Off</strong> for <code>docs.google.com</code>; that one rule covers Docs, Sheets and Slides.</p>
+
+    <h2>Incognito</h2>
+    <p>Chrome keeps extensions out of Incognito windows unless you allow it: open <code>chrome://extensions</code>, press <strong>Details</strong> under Dusk and turn on <strong>Allow in Incognito</strong>. Dusk then does not remember the sites you visit in those windows. Choices you make in the popup there, such as site rules, are saved and stay after the window closes.</p>
+
+    <h2>Where your settings live</h2>
+    <p>Your mode, site rules, Page colors choices and remembered sites are stored only in this Chrome profile on this computer. They do not sync to your other computers, and nothing is sent to Dusk. Remembered sites let a repeat visit get the right look sooner; <strong>Forget remembered sites</strong> clears them and keeps your site rules. The Chrome Web Store version does not connect to Dusk for Mac: it uses only the choices in its own popup.</p>
+
+    <h2 id="reports">Problem reports</h2>
+    <p>Press <strong>Preview problem report</strong> to see a short report: Dusk’s version, your mode and site rule, how the page looks, which Page colors method is active, and the connection status. The website’s hostname is added only if you tick <strong>Include website hostname</strong>. The report never holds page content, screenshots or full addresses. <strong>Copy report</strong> copies it to your clipboard; nothing is sent. Paste it into an email or a GitHub issue (see <a href="#contact">Contact</a>; issues are public).</p>
+
+    <h2>Uninstall</h2>
+    <p>Right-click the Dusk icon in the toolbar and choose <strong>Remove from Chrome</strong>, or open <code>chrome://extensions</code> and press <strong>Remove</strong> under Dusk. Chrome deletes Dusk’s stored settings with it. Reload any tab that was open to see it without Dusk.</p>
+
+    <h2 id="contact">Contact</h2>
+    <p>Email <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a>, or <a href="https://github.com/calvinkim85/dusk-site/issues">open an issue on GitHub</a>. Please do not send passwords or other sensitive information.</p>
+  </main>
+  <footer><span>Dusk for Chrome</span><span><a href="./">Home</a> · <a href="chrome-help.html">Chrome help</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span></footer>
+</div>
+</body>
+</html>
