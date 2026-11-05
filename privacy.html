@@ -17,7 +17,7 @@
   <main class="doc">
     <p class="policy-scope">This policy covers the direct-download Mac edition and Dusk for Chrome. It does not cover Dusk for Mac from the App Store; <a href="mac-app-store-privacy.html">read the App Store edition's separate privacy policy</a>.</p>
 <h1>Dusk: Privacy Policy</h1>
-<p><em>Last updated 19 October 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
+<p><em>Last updated 3 November 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
 <h2>The short version</h2>
 <p>Dusk switches your Mac and your websites between light and dark. Appearance analysis happens on your computer. <strong>Dusk has no accounts, analytics, advertising, or automatic crash reporting.</strong> It stores the browser settings and remembered hostnames described below locally; it does not send them to Dusk. Appearance processing and optional Mac profile sharing happen locally. Dusk for Mac checks Dusk's update feed once a day while "Check for updates automatically" is on (you control this in Updates), and when you press "Check now". It contacts only that feed, to check for and download updates. As with any download, its host receives normal connection data, including your IP address and request headers.</p>
 <h2>What the Mac app reads</h2>
@@ -99,12 +99,23 @@
  forms, passwords or cookies, and does not send those to Dusk or an analytics service.
  An embedded frame, such as a sign-in or video widget, reads the origin of the page it is embedded in
  so it follows that page's site rule; this stays in memory and is not stored.
-</li><li>To classify an image from another site that the browser will not let it inspect directly, the
+ One small bundled script runs in the page's own context: when a picture shown through an <code>&lt;object&gt;</code> or
+ <code>&lt;embed&gt;</code> element fails to load, it loads that same picture once from the page to check it is there and, only
+ if it is, replaces the element once with a copy so the picture can show as the page intended (if the copy
+ fails too, the page's own element is put back). It reads nothing else and sends nothing to Dusk.
+</li><li>A dark one-colour bullet picture on a page being darkened (or a light one being lightened) is redrawn in
+ the opposite tone, in your browser, and put back as an inline <code>data:</code> image. On a page whose own security
+ policy forbids such images, the bullet falls back to the list's own marker (or to none, if the list has
+ none), and the browser may send that site the policy-violation report it sends for any image its policy
+ blocks (it names only <code>data</code>).
+</li><li>To classify an image from another site that the browser will not let it inspect directly (including an
+ SVG drawing another site shows through an <code>&lt;object&gt;</code> or <code>&lt;embed&gt;</code> element on a page being lightened), the
  extension may read that image's existing address again. Dusk asks Chrome to use its cached copy when
  it has one. If it has none, the request goes to the image's host. The request carries no cookies and no
  referrer, but it does carry an <code>Origin</code> header that names the site showing the image. The image host may
  receive normal connection data such as your IP address, the requested address and request headers.
- The extension never requests again an image smaller than 16 pixels, an image the page loads without a
+ The extension never requests again an image smaller than 16 pixels (for a CSS background image, or a drawing shown
+ through <code>&lt;object&gt;</code> or <code>&lt;embed&gt;</code>, one shown in a box smaller than 16 pixels, since the file's own size is not known before it is read), an image the page loads without a
  referrer, or any image on a page whose markup sets its referrer policy to <code>no-referrer</code> or <code>same-origin</code>
  (a policy a site sends only as an HTTP header is not visible to the extension). Pixel and SVG colour
  analysis stays local.
