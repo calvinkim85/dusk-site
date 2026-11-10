@@ -16,28 +16,37 @@
   </header>
   <main class="doc">
     <h1>Dusk for Mac: App Store Support</h1>
-    <p><em>For the Dusk edition downloaded from the Mac App Store. Updated 6 October 2026.</em></p>
+    <p><em>For the Dusk edition downloaded from the Mac App Store. Updated 10 November 2026.</em></p>
 
     <h2>What this edition does</h2>
     <p>Dusk switches your Mac between Light and Dark appearance. You can choose a mode yourself or set a daily schedule. This App Store edition controls macOS appearance only. It does not install the Dusk for Chrome extension or the separate direct-download edition.</p>
 
-    <h2>Set up Apple Shortcuts</h2>
-    <p>This edition requires macOS 14 or later and Apple’s Shortcuts app. In Shortcuts, create two shortcuts with distinct names. Each must contain exactly one built-in <strong>Set Appearance</strong> action: set one to <strong>Light</strong> and the other to <strong>Dark</strong>. Do not add other actions.</p>
-    <p>Open <strong>Shortcut setup…</strong> from Dusk’s menu-bar popup. Enter and save the exact names. With your Mac in Light mode, verify the Dark shortcut. Then, with your Mac in Dark mode, verify the Light shortcut. Dusk checks the response from Shortcuts and the actual appearance change. Both shortcuts must be verified before Auto is available.</p>
-    <p>Dusk opens the shortcuts you name; it cannot inspect or cancel their actions. Use only the two simple appearance shortcuts described above. If you rename or edit them in Shortcuts, check their actions and verify the correct names again in Dusk. Shortcuts is a separate Apple app and may show its own interface or messages.</p>
+    <h2>Requirements</h2>
+    <p>This edition requires macOS 14 or later and Apple’s Shortcuts app.</p>
 
-    <h2>Scheduling and manual mode</h2>
-    <p>Choose Light or Dark for a manual change, or set your daily hours and choose Auto. A manual choice pauses Auto. The schedule runs while Dusk is open and your Mac is awake; after waking, Dusk evaluates the current scheduled mode. Turn on <strong>Open at login</strong> if you want Dusk to start when you sign in.</p>
+    <h2>Set up Light and Dark</h2>
+    <p>Open Dusk’s Settings and choose Setup guide. The guide opens Shortcuts or the relevant shortcut editor and explains what to click. Basic setup is selected first: create two shortcuts with Apple’s Set Appearance action, one fixed to Light and one to Dark. Choose fixed appearances, not Toggle. Save two distinct, exact shortcut names in Dusk.</p>
+    <p>Compatibility is optional. It offers prepared Light and Dark shortcuts, or manual creation under Shortcut setup → Troubleshoot → Set a shortcut up by hand. Inspect each shortcut before adding it. If Shortcuts finds an existing name, choose deliberately: Keep Both preserves the original and gives the copy its own name. Save the actual name shown in Shortcuts. Do not replace a working shortcut unless you intend to replace it. Both Compatibility routes require Allow Running Scripts (a setting for Shortcuts generally). macOS may also ask you to allow Shortcuts to control System Events; you decide whether to grant that permission. Basic setup remains available without the supplied scripts.</p>
+    <p>Before Dusk tests a new, unverified shortcut, open it from Prepare new shortcuts and press Run in Apple Shortcuts. Review any prompt yourself. Wait until Stop returns to Run, with no error or pending prompt, and check that the Mac reached the requested appearance. Return to Dusk and confirm that the run finished. This is preparation only: choose Test Light &amp; Dark so Dusk can check both appearance changes and successful Shortcuts replies. Setup complete appears only after Dusk has verified both shortcuts.</p>
+    <p>If you edit a name but have not saved it, save the exact name or restore the saved name before confirming preparation. If you open a prepared import that could replace a verified shortcut, Dusk will require a fresh check even if you later cancel the import. This protects against relying on a test of an older shortcut. Dusk cannot see edits or imports made independently in your Shortcuts library; after changing a shortcut outside Dusk, retest it before using Auto.</p>
+    <p>Dusk opens the shortcuts you name. It cannot inspect or cancel their actions. Shortcuts is a separate Apple app and may show its own interface or messages.</p>
+
+    <h2>If a test takes too long</h2>
+    <p>A timeout does not cancel the shortcut in Apple Shortcuts. Do not keep pressing Run or Test. Inspect the pending shortcut, finish any prompt, or stop the run. Acknowledge recovery in Dusk only after checking that no run remains pending. New shortcuts may take longer on their first run; Dusk does not promise that a delay happens only once or ends within a particular time. If the run fails, keep the actual error for your own troubleshooting and describe it without sharing private content.</p>
+
+    <h2>Using Auto and other apps</h2>
+    <p>After both shortcuts are verified, set distinct Dark and Light hours and enable Auto. Dusk must be running and your Mac available for scheduled changes. After sleep, Dusk checks the current schedule when it can resume. A manual Light or Dark choice pauses Auto. Another app must support system appearance and be configured to follow it; Dusk does not override that app’s theme setting or recolor websites. Use a fixed macOS appearance setting (System Settings → Appearance) to avoid a competing system Auto schedule. Other appearance utilities can also change the mode independently.</p>
+    <p>Turn on <strong>Open at login</strong> if you want Dusk to start when you sign in. If macOS asks, approve Dusk in System Settings → General → Login Items.</p>
     <p>Scheduled changes use a Shortcuts URL and observe the requested appearance. This observation does not confirm that a shortcut finished or caused the change. If a change cannot be confirmed, Auto pauses and will not retry automatically.</p>
 
-    <h2>If a shortcut fails or takes too long</h2>
-    <p>Open Shortcuts, inspect or stop the shortcut, and check your Mac’s current appearance. An operation may still be running after Dusk times out. Follow the recovery instructions in Dusk before trying again. Check that the saved names exactly match the two shortcuts and that each has only the fixed Set Appearance action. If you change a saved name, verify it again before resuming Auto.</p>
+    <h2>Report a problem</h2>
+    <p>Choose Report a problem in Dusk’s Settings. Describe what you expected and what happened, then review the preview. The included status lines are Dusk/build and macOS versions, current appearance, Auto status, recovery status, setup stage and verification state. Shortcut names or contents, screenshots, logs and browsing history are not attached automatically. Avoid putting private information in your description. Copy report copies what you see; Open email draft opens a draft to <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a> that you review and send yourself. Nothing is sent automatically.</p>
 
-    <h2>Avoid competing appearance schedules</h2>
-    <p>Set <strong>System Settings → Appearance</strong> to Light or Dark when using Dusk’s Auto schedule. macOS Auto and other appearance utilities can otherwise change the mode independently. Apps with fixed themes must be configured to follow the system separately. Dusk does not recolor website content or images.</p>
+    <h2>Privacy and removing settings</h2>
+    <p>Open Privacy &amp; Help in Dusk, then Privacy policy, for local-settings removal instructions and how to request deletion of a report you emailed. Emailing support is optional. Resolved reports are deleted from our support mailbox within 90 days; earlier deletion can be requested at the support address.</p>
 
     <h2>Contact support</h2>
-    <p>Email <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a>. Tell us what happened and which macOS version you use. Email is voluntary: if you contact us, we receive the email address and any information you include so we can reply. Please do not send passwords or other sensitive information.</p>
+    <p>Email <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a>. Tell us what happened and which macOS version you use. Email is voluntary: if you contact us, we receive your email address, any sender name included by your email app, and the information you include so we can reply. Please do not send passwords or other sensitive information.</p>
   </main>
   <footer><span>Dusk for Mac</span><span><a href="mac-app-store-privacy.html">Privacy policy</a></span></footer>
 </div>

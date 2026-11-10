@@ -26,10 +26,16 @@
         </div>
         <p class="note">Coming to the Mac App Store. Not released yet.<br>Free · macOS 14 or later · Apple Shortcuts required.</p>
       </div>
-      <figure class="hero-shot">
-        <a href="img/mac-store-light.jpg" aria-label="View full-size screenshot of Dusk in Light mode"><img class="shot wide" src="img/mac-store-light.jpg" width="2560" height="1600" alt="Dusk’s App Store interface in Light mode, with verified Light and Dark shortcuts and a daily schedule."></a>
-        <figcaption>Mac App Store edition in Light mode.</figcaption>
-      </figure>
+      <div class="card">
+        <h3>In this edition</h3>
+        <ul class="plain">
+          <li>Light, Dark and Auto from your menu bar</li>
+          <li>A step-by-step guide for the two Apple Shortcuts it uses</li>
+          <li>Test Light &amp; Dark: setup completes after both appearance changes and successful Shortcuts replies</li>
+          <li>Open at login, if you want it</li>
+          <li>Report a problem: you see the whole report first and send it yourself</li>
+        </ul>
+      </div>
     </div>
     <section aria-labelledby="modes">
       <h2 id="modes">Three choices. Your daily rhythm.</h2>
@@ -41,12 +47,12 @@
       </div>
     </section>
     <section id="setup" aria-labelledby="setup-title">
-      <h2 id="setup-title">A small setup in Apple Shortcuts</h2>
-      <p class="sub">This edition uses two shortcuts you create. Setup is required before automatic switching.</p>
+      <h2 id="setup-title">A guided setup in Apple Shortcuts</h2>
+      <p class="sub">This edition changes your Mac’s appearance through two Apple Shortcuts, one for Light and one for Dark. Dusk’s setup guide walks you through them, and Auto becomes available once Dusk has tested both.</p>
       <ol class="plain">
-        <li>In Apple Shortcuts, create one shortcut with a single <strong>Set Appearance → Light</strong> action and another with <strong>Set Appearance → Dark</strong>. Give them different names and add no other actions.</li>
-        <li>Open Dusk’s shortcut setup, enter their exact names and save them.</li>
-        <li>Verify each shortcut from the opposite appearance. Once both are verified, choose your hours and turn on Auto.</li>
+        <li>Open Dusk’s Settings and choose <strong>Setup guide</strong>. It opens Shortcuts or the right shortcut editor and lists what to click.</li>
+        <li><strong>Basic</strong>, the default: create one shortcut with a single <strong>Set Appearance</strong> action fixed to Light and another fixed to Dark (not Toggle), and save two distinct, exact names in Dusk. Optional <strong>Compatibility</strong> offers prepared shortcuts or manual setup under Troubleshoot. Both use System Events and require Allow Running Scripts in Shortcuts; macOS may also ask you to allow Shortcuts to control System Events. Only you can grant those permissions.</li>
+        <li>Run each new shortcut once in Shortcuts and let it finish, confirm that in Dusk, then choose <strong>Test Light &amp; Dark</strong>. Dusk shows Setup complete only after both appearance changes and successful Shortcuts replies. Then choose your hours and turn on Auto.</li>
       </ol>
       <p><a href="mac-app-store-support.html">Follow the full setup and troubleshooting guide →</a></p>
     </section>
@@ -56,14 +62,14 @@
         <ul class="plain">
           <li>Choose <strong>System</strong> or <strong>Follow system</strong> in apps with their own appearance setting. Fixed themes and some apps may not follow a change.</li>
           <li>The Mac App Store edition changes macOS appearance. It does not recolor pictures, PDFs or website content, install an extension, or change another app’s settings.</li>
-          <li>Auto runs while Dusk is open and your Mac is awake. If Dusk cannot confirm a switch, it pauses Auto and shows recovery instructions.</li>
+          <li>Dusk must be running and your Mac available for scheduled changes. After sleep, Dusk checks the current schedule when it can resume. If Dusk cannot confirm a switch, it pauses Auto and shows recovery instructions.</li>
           <li>Use Light or Dark in System Settings when running Dusk’s schedule, so macOS Auto does not compete with it.</li>
         </ul>
       </div>
     </section>
     <section aria-labelledby="private">
       <h2 id="private">Your settings stay on your Mac</h2>
-      <p class="sub">No Dusk account, ads, analytics or in-app purchases. The app makes no network requests. Apple delivers downloads and updates; your own shortcuts are separate workflows under your control.</p>
+      <p class="sub">No Dusk account, ads, analytics or in-app purchases. The app makes no network requests. Apple delivers downloads and updates; your own shortcuts are separate workflows under your control. Report a problem shows you the whole report first; you copy it, or open a draft in your own email app and send it yourself.</p>
       <p><a href="mac-app-store-privacy.html">Read the App Store edition’s privacy policy</a></p>
     </section>
     <section aria-labelledby="web">
