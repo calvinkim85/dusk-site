@@ -17,9 +17,9 @@
   <main class="doc">
     <p class="policy-scope">This policy covers the direct-download Mac edition and Dusk for Chrome. It does not cover Dusk for Mac from the App Store; <a href="mac-app-store-privacy.html">read the App Store edition's separate privacy policy</a>.</p>
 <h1>Dusk: Privacy Policy</h1>
-<p><em>Last updated 3 November 2026. Applies to the Dusk app for macOS and the "Dusk for Chrome" extension.</em></p>
+<p><em>Last updated 11 November 2026. Applies to the direct-download Dusk app for macOS and the "Dusk for Chrome" extension, including version 0.3.1. The Mac App Store edition has a separate policy.</em></p>
 <h2>The short version</h2>
-<p>Dusk switches your Mac and your websites between light and dark. Appearance analysis happens on your computer. <strong>Dusk has no accounts, analytics, advertising, or automatic crash reporting.</strong> It stores the browser settings and remembered hostnames described below locally; it does not send them to Dusk. Appearance processing and optional Mac profile sharing happen locally. Dusk for Mac checks Dusk's update feed once a day while "Check for updates automatically" is on (you control this in Updates), and when you press "Check now". It contacts only that feed, to check for and download updates. As with any download, its host receives normal connection data, including your IP address and request headers.</p>
+<p>Dusk switches your Mac and your websites between light and dark. Appearance analysis happens on your computer. <strong>Dusk has no accounts, analytics, advertising, or automatic crash reporting.</strong> It stores the browser settings and remembered hostnames described below locally; it does not send them to Dusk automatically. You can choose to send a support report by email as described below. Appearance processing and optional Mac profile sharing happen locally. Dusk for Mac checks Dusk's update feed once a day while "Check for updates automatically" is on (you control this in Updates), and when you press "Check now". It contacts only that feed, to check for and download updates. As with any download, its host receives normal connection data, including your IP address and request headers.</p>
 <h2>What the Mac app reads</h2>
 <p>To tell you which apps will follow the switch, Dusk looks at:</p>
 <ul><li><strong>The list of apps installed in your Applications folders</strong>, and each app's bundle information and
@@ -119,13 +119,16 @@
  referrer, or any image on a page whose markup sets its referrer policy to <code>no-referrer</code> or <code>same-origin</code>
  (a policy a site sends only as an HTTP header is not visible to the extension). Pixel and SVG colour
  analysis stays local.
-</li><li>It stores, <strong>only in your browser</strong>: your chosen mode, your per-site choices (always dark, always light,
- or off), your Page colors choice for each site where you changed it, one undo record for "Restore this
+</li><li>It stores, <strong>only in your browser</strong>: your chosen mode (and, for Scheduled, the two hours you picked), your per-site choices (always dark, always light,
+ or off, for one hostname or for a whole domain), your Page colors choice for each site where you changed it, one undo record for "Restore this
  website" (it holds that site's hostname and its previous rule), and two lists of up to 300 entries
  each: sites that measured light and sites that measured dark. These can speed up decisions on repeat
  visits. Each entry is a site (its registered domain, such as example.com), whether your system was light or dark when the site was measured,
  and when it was last seen (updated at most once a day). The entries seen longest ago are dropped automatically, and the popup's "Forget
- remembered sites" button clears both lists at any time.
+ remembered sites" button clears both lists at any time. It also keeps up to five dates on which it changed a page
+ (not which page, and never from a private window), only so the popup knows when to ask once "Is Dusk working for
+ you?", and whether you answered. These dates and the answered flag stay locally until you remove the
+ extension; "Forget remembered sites" clears only the appearance lists, not these dates or your answer.
 </li><li>For a host where you explicitly choose <strong>Standard</strong>, a remembered appearance may create a
  bundled content-script registration in this browser for that exact hostname. Registrations contain
  appearance hints, not page content or URL paths. Current settings are checked before rendering;
@@ -140,6 +143,13 @@
  helper receives only a fixed request for the active profile, not your current URL or page content.
 </li><li><strong>Problem reports</strong> are previewed locally and copied only when you press Copy. A hostname is optional.
  No full URL, page text, screenshot or query string is included, and nothing is submitted automatically.
+ "Report a problem" in that question opens an email draft in your mail app with the same report, without the
+ hostname; you decide whether to send it. "Rate Dusk" opens Dusk's page in the Chrome Web Store.
+</li><li><strong>Removing the extension</strong> makes Chrome open a page on Dusk's website,
+ <a href="https://calvinkim85.github.io/dusk-site/uninstall.html">https://calvinkim85.github.io/dusk-site/uninstall.html</a>, hosted on GitHub Pages, which receives the normal
+ connection data any page visit sends, such as your IP address and request headers; Dusk adds nothing to the
+ address: no reason, hostname, page history or identifier. If you choose a reason on that page, it opens
+ an email draft with that reason in the subject; you decide whether to send it.
 </li><li>Permissions in the Chrome Web Store build: access to all websites (<code>&lt;all_urls&gt;</code>), so its page scripts
  can run on the sites you visit (Chrome shows this as "Read and change all your data on all websites");
  <code>storage</code> for settings; <code>activeTab</code> for the popup's current website and status; and <code>scripting</code> to
@@ -152,8 +162,12 @@
  <code>nativeMessaging</code> (to talk to the Dusk app on this computer) and <code>alarms</code> (to refresh that connection). It
  loads no remote code. The image requests described above can still occur.
 </li></ul>
+<h2>Optional support email and website visits</h2>
+<p>Dusk does not automatically send problem reports. If you send a report or other support email to <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a>, we receive your email address, any sender name included by your email app, and the message or report you choose to send. We use these only to investigate and respond to your request, not for advertising or sale. Review your message before sending; do not include passwords or sensitive information.</p>
+<p>We use Gmail for support mail, subject to Google's Privacy Policy at <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a>. Your email app and provider also handle the message under their own policies. We retain unresolved support correspondence while working on it and delete resolved correspondence from our support mailbox, including Trash, within 90 days after resolution. You can request earlier deletion or no further support contact by emailing <a href="mailto:duskformac@gmail.com">duskformac@gmail.com</a> from the address you used; no identity documents are needed. We will delete the associated support messages and stop contacting you apart from confirming the request. This does not remove copies in your own email account or copies retained independently by email providers under their policies.</p>
+<p>Our help, privacy and removal pages are hosted on GitHub Pages. GitHub logs visitors' IP addresses for security, including when a page opens after uninstall. See <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages</a> and <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a>. Public GitHub issues can be read by anyone; include only information you want to make public.</p>
 <h2>Chrome Web Store Limited Use</h2>
-<p>The Chrome extension uses the website information and local settings described above only to provide its appearance features. Its use of this information follows the Chrome Web Store User Data Policy, including the Limited Use requirements. Dusk does not sell this information or use it for advertising, creditworthiness or lending. The developer does not receive or read your page content or remembered sites. Image requests go only to the existing image host as described above, to provide the appearance feature; Dusk does not send that information to an analytics or advertising service.</p>
+<p>The Chrome extension uses the website information and local settings described above only to provide its appearance features and the optional support reports you choose to send. Its use of this information for appearance and user-requested support follows the Chrome Web Store User Data Policy, including the Limited Use requirements. Dusk does not sell this information or use it for advertising, creditworthiness or lending. The developer does not automatically receive or read your page content or remembered sites through the extension. Information you voluntarily include in a support message is handled as described above. Image requests go only to the existing image host as described above, to provide the appearance feature; Dusk does not send that information to an analytics or advertising service.</p>
 <h2>Removing your data</h2>
 <ul><li>Mac app: delete <code>~/Library/Application Support/Dusk/</code> and run <code>defaults delete dev.calvin.dusk</code>.
  Press "Remove all" under Exceptions first, so any app you kept light goes back to normal. Keep any
@@ -162,7 +176,7 @@
  Restore any <code>*.dusk-backup</code> file if you want an app's original settings back.
 </li><li>Remove the optional native-host registration by deleting
  <code>~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.dusk.profiles.json</code>.
-</li><li>Extension: removing it from Chrome deletes its stored profiles, settings and remembered appearances.
+</li><li>Extension: removing it from Chrome deletes its stored profiles, settings, remembered appearances, the five local use dates and the answered flag.
 </li></ul>
 <h2>Children</h2>
 <p>Dusk has no accounts or child-specific features. It does not send locally stored browser settings or remembered hostnames to Dusk.</p>

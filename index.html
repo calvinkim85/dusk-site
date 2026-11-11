@@ -47,15 +47,16 @@
 
     <div class="dusk-copy">
       <h1 class="couplet"><span class="q blend">Your Mac apps<br> and websites.</span> <span class="a blend">One switch.<br> One click.</span></h1>
-      <p class="lede blend">Press Dark once. Your Mac, the apps that follow it and websites that stay white go dark together.</p>
+      <p class="lede blend">Switch your Mac’s appearance from the menu bar. Add Dusk for Chrome separately to darken websites that stay light.</p>
       <div class="get get-mac">
         <a class="add" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Download for Mac</a>
-        <span class="fine blend">Free. No account. macOS 14 or later.</span>
+        <span class="fine blend">Free direct download · macOS 14 or later</span>
       </div>
       <div class="get get-chrome">
         <a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Add to Chrome</a>
-        <span class="fine blend">Free. No account. For Chrome on a computer.</span>
+        <span class="fine blend">Works on its own · desktop Chrome</span>
       </div>
+      <p class="phone-handoff blend"><a href="#chrome-desktop">On a phone? Find Dusk on your computer</a></p>
     </div>
 
     <figure class="compare">
@@ -93,8 +94,28 @@
     <div class="knob" id="dusk-knob"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd97c"/><stop offset="1" stop-color="#fdbc59"/></linearGradient><linearGradient id="moon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecfa"/><stop offset="1" stop-color="#d2d8f2"/></linearGradient></defs><circle cx="30" cy="30" r="30" fill="#1a1d45"/><path d="M30 3.5a26.5 26.5 0 0 0 0 53z" fill="url(#sun)"/><path d="M30 3.5a26.5 26.5 0 0 1 0 53z" fill="url(#moon)"/><path d="M21 21l-9 9 9 9M39 21l9 9-9 9" fill="none" stroke="#1a1d45" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 
+  <section id="chrome" class="wrap" aria-labelledby="chrome-title">
+    <div class="chrome-start">
+      <div>
+        <h2 id="chrome-title">Dark mode for websites in Chrome</h2>
+        <p>Dusk darkens light pages while preserving photo colours where possible. Choose a look for each website or use <strong>Restore this website</strong> if a page looks wrong.</p>
+        <a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
+        <p class="fine">Free · No Dusk account · Dusk for Chrome 0.3.0</p>
+      </div>
+      <div class="chrome-setup">
+        <h3 id="chrome-desktop">Set up on a computer</h3>
+        <ol>
+          <li>Add Dusk from the Chrome Web Store, then pin it from Chrome’s Extensions menu.</li>
+          <li>Open Dusk and choose <strong>Always dark</strong> or <strong>Follow system</strong>. On a Mac, set Chrome’s Appearance Mode to <strong>Device</strong> to follow your Mac.</li>
+        </ol>
+        <p>On your phone? Share or bookmark this page for later, or search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store on your computer.</p>
+        <a href="chrome-help.html">Get help with Dusk for Chrome</a>
+      </div>
+    </div>
+  </section>
+
   <section id="why" class="wrap">
-    <h2>One switch covers both</h2>
+    <h2>How Mac apps and websites follow</h2>
     <ul class="ways">
       <li>
         <h3>Your Mac's dark mode</h3>
@@ -106,7 +127,7 @@
       </li>
       <li class="ways-dusk">
         <h3>Dusk</h3>
-        <div class="cells"><p class="cell on both">Both, from one switch <svg class="mascot" aria-hidden="true"><use href="#moon-mascot"/></svg></p></div>
+        <div class="cells"><p class="cell on both">Both, with Dusk for Mac and Dusk for Chrome <svg class="mascot" aria-hidden="true"><use href="#moon-mascot"/></svg></p></div>
       </li>
     </ul>
   </section>
@@ -189,7 +210,7 @@
           <li>Dusk for Mac keeps your settings on your Mac. It can check its update feed; you can turn automatic checks off.</li>
           <li>The direct-download edition's first switch may ask to control System Events, which it uses for the system appearance switch.</li>
           <li>Dusk for Chrome processes appearance locally and may re-fetch a page's images to inspect their colours, without cookies or a referrer. The image's host sees a normal request, including your IP address and the page's site. If a picture inside an embedded element fails to load, Dusk may load it once more from the page, as the page itself would.</li>
-          <li>Its settings and remembered sites stay in this Chrome profile on this computer, and nothing is sent to Dusk.</li>
+          <li>Its settings and remembered sites stay in this Chrome profile on this computer. Nothing is sent to Dusk automatically; optional support reports reach us only if you send the email.</li>
           <li>Chrome's install prompt says Dusk can read and change your data on websites, because it recolours pages as they load. It does not collect or store page text, form data, cookies or credentials.</li>
           <li>Automatic detection does not remember visits in Incognito windows. Settings you explicitly save in the popup may remain in Chrome.</li>
         </ul>
@@ -202,18 +223,18 @@
     <div class="dusk-sky"></div>
     <div class="line"></div>
     <svg class="mascot moon" aria-hidden="true"><use href="#moon-mascot"/></svg>
-    <h2 class="blend">Try it tonight.</h2>
+    <h2 class="blend">Get Dusk</h2>
     <div class="dusk-copy">
-      <div class="get get-mac">
+      <div class="get get-mac" id="mac">
         <a class="add" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Download for Mac</a>
-        <p class="fine blend"><strong>Dusk for Mac, version 1.0.5.</strong> Light, Dark and Auto from your menu bar, with app setup guidance, per-app choices and scheduling. Free. Requires macOS 14 or later; supports Apple silicon and Intel Macs. Its updater can contact the update feed.</p>
+        <p class="fine blend"><strong>Direct download for Mac, version 1.0.5.</strong> Light, Dark and Auto from your menu bar, with app setup guidance, per-app choices and scheduling. Free. Requires macOS 14 or later; supports Apple silicon and Intel Macs. Its updater can contact the update feed.</p>
       </div>
       <div class="get get-chrome">
         <a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Add to Chrome</a>
-        <p class="fine blend"><strong>Dusk for Chrome.</strong> Darkens websites that have no dark mode while photos keep their colours. Free. It works by itself; the Mac app is not required. The Chrome Web Store build does not include the optional Mac profile connection.</p>
+        <p class="fine blend"><strong>Dusk for Chrome, version 0.3.0.</strong> Darkens websites that have no dark mode while preserving photo colours where possible. Free. It works by itself; the Mac app is not required. The Chrome Web Store build does not include the optional Mac profile connection.</p>
       </div>
     </div>
-    <p class="store-note blend">An <a href="mac-app-store.html">App Store edition</a> is on its way and not released yet. It offers Light, Dark and a daily schedule through two Apple Shortcuts: its setup guide walks you through adding them, and Dusk checks both before the schedule can be turned on. <a href="mac-app-store-support.html">App Store support</a>.</p>
+    <p class="store-note blend"><a href="mac-app-store.html">Mac App Store edition</a> · Release pending. It offers Light, Dark and a daily schedule after a guided setup with two Apple Shortcuts. <a href="mac-app-store-support.html">App Store support</a>.</p>
   </div>
 </main>
 

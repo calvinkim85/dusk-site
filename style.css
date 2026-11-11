@@ -84,3 +84,6 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 44px; color: var
   header.top { flex-direction: column; }
   nav { max-width: none; justify-content: flex-start; }
 }
+
+/* Long policy URLs stay readable on narrow screens. */
+.doc a { overflow-wrap: anywhere; }
