@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#1a1d45">
+<title>Dusk for Chrome | Dark mode for websites</title>
+<meta name="description" content="Give bright websites a dark mode in desktop Chrome. Try Dusk's light and dark comparison, then add Dusk to Chrome for free.">
+<link rel="canonical" href="https://calvinkim85.github.io/dusk-site/chrome.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://calvinkim85.github.io/dusk-site/chrome.html">
+<meta property="og:title" content="Dusk for Chrome | Dark mode for websites">
+<meta property="og:description" content="Darken bright websites in desktop Chrome, with a choice for each site. Free, with no Dusk account.">
+<link rel="icon" href="img/icon.png">
+<link rel="preload" href="fonts/outfit-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chrome.css">
+<script defer src="js/chrome.js"></script>
+</head>
+<body class="chrome-page">
+<div class="chrome-night">
+  <header class="top wrap">
+    <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+    <nav aria-label="Main navigation">
+      <a href="#setup">Set up</a>
+      <a href="chrome-help.html">Chrome help</a>
+      <a href="./#mac">Dusk for Mac</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="chrome-intro wrap">
+      <div class="chrome-copy">
+        <h1>Dark browser.<br>Bright page?</h1>
+        <p class="lede">Dusk for Chrome darkens supported websites that stay light, with a choice for each site.</p>
+        <a class="btn chrome-install" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
+        <p class="chrome-note">Free for desktop Chrome. No Dusk account.</p>
+        <a class="chrome-phone" href="#save-for-desktop">On a phone? Save this for your computer</a>
+      </div>
+
+      <figure class="chrome-demo">
+        <div class="chrome-demo-bar">
+          <span>Wikipedia</span>
+          <div class="chrome-controls" id="chrome-controls" role="group" aria-label="Show the whole page in light or dark" hidden>
+            <button id="chrome-light" type="button" aria-pressed="false">Light</button>
+            <button id="chrome-dark" type="button" aria-pressed="false">Dark</button>
+          </div>
+        </div>
+        <div class="chrome-panes" id="chrome-compare">
+          <picture>
+            <source media="(max-width: 620px)" srcset="img/hero-wiki-dark-s.webp" width="800" height="834">
+            <img src="img/hero-wiki-dark.webp" width="1420" height="757" alt="The Wikipedia article about dusk with a dark background and light text. A photo shows lights across a valley at sunset." draggable="false">
+          </picture>
+          <picture class="chrome-light-pane">
+            <source media="(max-width: 620px)" srcset="img/hero-wiki-light-s.webp" width="800" height="834">
+            <img src="img/hero-wiki-light.webp" width="1420" height="757" alt="The same article on its original white background, with the same valley photo." fetchpriority="high" draggable="false">
+          </picture>
+          <input class="chrome-range" id="chrome-range" type="range" min="0" max="100" step="1" value="50" aria-label="Compare light and dark page appearance" aria-describedby="chrome-comparison-note" hidden>
+          <span class="chrome-divider" aria-hidden="true"><span>‹ ›</span></span>
+        </div>
+        <figcaption id="chrome-comparison-note">
+          <span class="chrome-drag-hint">Drag to compare or choose Light or Dark.</span>
+          Captured with Dusk for Chrome 0.2.5. <a href="#credits">Screenshot credits</a>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="chrome-content">
+      <section class="chrome-setup" id="setup" aria-labelledby="setup-title">
+        <div class="wrap chrome-setup-grid">
+          <div>
+            <h2 id="setup-title">Set up in two steps</h2>
+            <ol class="chrome-steps">
+              <li><div><h3>Add and pin Dusk</h3><p>Add Dusk from the Chrome Web Store. Open Chrome’s Extensions menu (the puzzle piece) and pin Dusk.</p></div></li>
+              <li><div><h3>Choose how pages go dark</h3><p>Open Dusk in the toolbar. Choose <strong>Always dark</strong> or <strong>Follow system</strong>. To follow your computer, set Chrome’s <strong>Appearance</strong> mode to <strong>Device</strong>.</p></div></li>
+            </ol>
+          </div>
+          <figure class="chrome-popup">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset="img/popup-dark.webp">
+              <img src="img/popup-light.webp" width="736" height="500" alt="Dusk’s popup showing website appearance, choices for the current site and the Restore this website button." loading="lazy">
+            </picture>
+            <figcaption>Earlier Dusk popup, showing the per-site controls.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <div class="wrap chrome-lower">
+        <section class="chrome-faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">A few things to know</h2>
+          <div>
+            <details>
+              <summary>Can I leave one site alone?</summary>
+              <p>Yes. In the popup, choose <strong>Off</strong> for that site, or click <strong>Restore this website</strong> if the page looks wrong. You can undo a restore from the popup.</p>
+            </details>
+            <details>
+              <summary>Will photos change colour?</summary>
+              <p>Dusk aims to keep photos and video in their original colours. Results vary by page, and pictures embedded in Google Docs can change along with the paper.</p>
+            </details>
+            <details>
+              <summary>Why did a page stay light?</summary>
+              <p>Some websites keep their own colours or only darken in part. Chrome Settings, the Chrome Web Store and Chrome’s PDF viewer keep their original appearance. Visit <a href="chrome-help.html">Chrome help</a> for troubleshooting.</p>
+            </details>
+            <details>
+              <summary>Do I need the Mac app?</summary>
+              <p>Dusk for Chrome works by itself in desktop Chrome. The separate <a href="./#mac">Dusk for Mac</a> app switches your Mac and the apps that follow its appearance.</p>
+            </details>
+            <details>
+              <summary>Where does Dusk process page colours?</summary>
+              <p>Dusk processes appearance on your computer. It may request images again from their existing hosts to check their colours. See the <a href="privacy.html">privacy policy</a> for permissions and what Dusk stores.</p>
+            </details>
+          </div>
+        </section>
+
+        <section class="chrome-save" id="save-for-desktop" aria-labelledby="save-title">
+          <div>
+            <h2 id="save-title">Reading on your phone?</h2>
+            <p>Bookmark or share this page for later. On your computer, search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store.</p>
+          </div>
+          <a class="btn chrome-install" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="wrap chrome-footer">
+    <span>Dusk for Chrome</span>
+    <nav aria-label="Footer">
+      <a href="chrome-help.html">Chrome help</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+    <details id="credits">
+      <summary>Screenshot credits</summary>
+      <p><a href="https://en.wikipedia.org/wiki/Dusk">“Dusk” article</a> by Wikipedia contributors. <a href="https://commons.wikimedia.org/wiki/File:Landers_in_the_Mojave_Desert_at_dusk,_looking_west_from_Joshua_Tree,_California_USA.jpg">Landers at dusk photo</a> by Jessie Eastland. The cropped and recoloured captures are under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+    </details>
+  </footer>
+</div>
+</body>
+</html>

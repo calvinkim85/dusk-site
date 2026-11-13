@@ -17,6 +17,8 @@ html { scroll-behavior: smooth; scroll-padding-top: 16px; }
 
 /* Header, floating over the hero */
 .home header.top { position: absolute; inset: 0 0 auto 0; padding: 18px var(--gutter); flex-direction: row; align-items: center; }
+/* Raise the link contents so the hero cannot intercept clicks, while keeping their blend backdrop. */
+.home header.top a img, .home header.top a span, .home header.top nav a { position: relative; z-index: 2; }
 .home .brand span { color: #fff; mix-blend-mode: difference; }
 .home header.top nav { max-width: none; flex-wrap: wrap; justify-content: flex-end; gap: 4px 22px; }
 .home header.top nav a { color: #fff; mix-blend-mode: difference; }
@@ -202,6 +204,10 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   .does-row-flip > figure { order: -1; justify-self: start; }
   .home footer { grid-template-columns: 1fr; }
   .home footer nav { justify-content: flex-start; }
+}
+
+@media (max-width: 520px) {
+  .dusk:not(.dusk-end) { padding-top: 110px; }
 }
 
 @media (max-width: 359px) {
