@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="chrome.css">
 <script defer src="js/chrome.js"></script>
+<script defer src="js/page-handoff.js"></script>
 </head>
 <body class="chrome-page">
 <div class="chrome-night">
@@ -35,7 +36,7 @@
         <h1>Dark browser.<br>Bright page?</h1>
         <p class="lede">Dusk for Chrome darkens supported websites that stay light, with a choice for each site.</p>
         <a class="btn chrome-install" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
-        <p class="chrome-note">Free for desktop Chrome. No Dusk account.</p>
+        <p class="chrome-note">Free for desktop Chrome. Version 0.3.1. No Dusk account.</p>
         <a class="chrome-phone" href="#save-for-desktop">On a phone? Save this for your computer</a>
       </div>
 
@@ -116,9 +117,13 @@
         <section class="chrome-save" id="save-for-desktop" aria-labelledby="save-title">
           <div>
             <h2 id="save-title">Reading on your phone?</h2>
-            <p>Bookmark or share this page for later. On your computer, search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store.</p>
+            <p>Copy or bookmark this page for later. On your computer, search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store.</p>
           </div>
-          <a class="btn chrome-install" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
+          <div class="page-handoff" data-page-handoff>
+            <p><a href="https://calvinkim85.github.io/dusk-site/chrome.html" data-page-link>https://calvinkim85.github.io/dusk-site/chrome.html</a></p>
+            <button class="btn ghost" type="button" data-copy-page hidden>Copy this page link</button>
+            <p role="status" data-copy-status></p>
+          </div>
         </section>
       </div>
     </div>

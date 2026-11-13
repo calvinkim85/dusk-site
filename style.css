@@ -87,3 +87,10 @@ footer { border-top: 1px solid var(--line); padding-block: 28px 44px; color: var
 
 /* Long policy URLs stay readable on narrow screens. */
 .doc a { overflow-wrap: anywhere; }
+
+/* Copying is optional; the URL is readable and selectable on its own. */
+.page-handoff { min-width: 0; }
+.page-handoff a { overflow-wrap: anywhere; }
+.page-handoff button { margin-top: 8px; min-height: 44px; font-family: inherit; cursor: pointer; }
+.page-handoff button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.page-handoff [role="status"]:not(:empty) { margin-top: 8px; font-size: 15px; }
