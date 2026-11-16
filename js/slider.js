@@ -10,7 +10,7 @@
   var knob = document.getElementById('dusk-knob');
   if (!dusk || !range || !panes || !knob) { root.classList.remove('sweep'); return; }
 
-  var REST = 50, x = REST, width = 0, frameLeft = 0, dragging = false, sweepId = 0;
+  var REST = 50, x = REST, width = 0, frameLeft = 0, dragging = false, sweepId = 0, touched = false;
 
   function clamp(v) { return Math.min(100, Math.max(0, v)); }
 
@@ -36,6 +36,9 @@
 
   function stopSweep() { if (sweepId) { cancelAnimationFrame(sweepId); sweepId = 0; } }
 
+  // Any input from the visitor stops the line and keeps the load-time sweep from starting later: their input wins.
+  function userInput() { touched = true; stopSweep(); }
+
   function sweep(from, to, ms) {
     var start = 0;
     function step(now) {
@@ -55,7 +58,7 @@
   function grab(surface) {
     surface.addEventListener('pointerdown', function (event) {
       if (event.button) return;
-      stopSweep();
+      userInput();
       dragging = true;
       surface.setPointerCapture(event.pointerId);
       // A finger on the picture may be starting a scroll, so touch waits for movement. A mouse click moves the line now.
@@ -68,7 +71,7 @@
     });
   }
 
-  range.addEventListener('input', function () { stopSweep(); paint(+range.value); });
+  range.addEventListener('input', function () { userInput(); paint(+range.value); });
   grab(panes);
   grab(knob);
 
@@ -81,9 +84,10 @@
     button.className = label.className;
     button.textContent = label.textContent;
     button.setAttribute('aria-label', 'Show the page in ' + label.textContent);
-    button.addEventListener('click', function () {
-      stopSweep();
-      if (reduce) paint(to); else sweep(x, to, 700);
+    // A pointer click glides there; a key press (detail 0) or reduced motion moves it at once.
+    button.addEventListener('click', function (event) {
+      userInput();
+      if (reduce || !event.detail) paint(to); else sweep(x, to, 700);
     });
     label.replaceWith(button);
   });
@@ -100,7 +104,7 @@
 
   // Wait for the two pictures so the sweep is not over an empty frame, but not for long.
   var shown = panes.querySelectorAll('img[fetchpriority="high"]'), waits = [], begun = false;
-  function begin() { if (begun) return; begun = true; if (!dragging) sweep(x, REST, 1300); }
+  function begin() { if (begun) return; begun = true; if (!touched && !dragging) sweep(x, REST, 1300); }
   shown.forEach(function (img) { if (img.decode) waits.push(img.decode().catch(function () {})); });
   Promise.all(waits).then(begin);
   setTimeout(begin, 700);

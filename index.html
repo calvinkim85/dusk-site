@@ -25,20 +25,9 @@
 <script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('sweep');setTimeout(function(){document.documentElement.classList.remove('sweep')},1500)}</script>
 </head>
 <body class="home">
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs><radialGradient id="moon-body" cx="35%" cy="55%" r="75%"><stop offset="0" stop-color="#fbf8ff"/><stop offset=".6" stop-color="#ddd2ff"/><stop offset="1" stop-color="#a48ff0"/></radialGradient></defs>
-  <symbol id="moon-mascot" viewBox="0 0 200 200">
-    <ellipse cx="74" cy="184" rx="15" ry="9" fill="#8d78e6"/><ellipse cx="116" cy="181" rx="15" ry="9" fill="#8d78e6"/>
-    <path d="M101 16 A84 84 0 1 0 181.6 119.6 A66 66 0 1 1 101 16 Z" fill="url(#moon-body)" stroke="#5b4bb5" stroke-width="5" stroke-linejoin="round"/>
-    <g stroke="#7a66d8" stroke-width="10" stroke-linecap="round" fill="none"><path d="M26 124 q-16 6 -18 22"/><path d="M146 150 q16 8 26 2"/></g>
-    <g fill="#ffb6c8" opacity=".75"><ellipse cx="42" cy="118" rx="11" ry="7"/><ellipse cx="102" cy="142" rx="11" ry="7"/></g>
-    <g stroke="#262046" stroke-width="6" stroke-linecap="round" fill="none"><path d="M39 98 q11 -13 22 0"/><path d="M81 122 q11 -13 22 0"/><path d="M52 128 q14 18 30 7"/></g>
-  </symbol>
-</svg>
-
 <header class="top">
   <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt=""><span>Dusk</span></a>
-  <nav aria-label="Main navigation"><a href="#how">How it works</a><a class="nav-wide" href="#does">What it does</a><a class="nav-narrow" href="#privacy">Privacy</a><a href="chrome.html">Dusk for Chrome</a><a href="#editions">Get Dusk</a></nav>
+  <nav aria-label="Main navigation"><a href="#how">How it works</a><a class="nav-wide" href="#does">What it does</a><a class="nav-narrow" href="#privacy">Privacy</a><a class="nav-chrome" href="chrome.html">Dusk for Chrome</a><a href="#editions">Downloads</a></nav>
 </header>
 
 <main>
@@ -47,8 +36,11 @@
 
     <div class="dusk-copy">
       <h1 class="couplet"><span class="q blend">Your Mac apps<br> and websites.</span> <span class="a blend">One switch.<br> One click.</span></h1>
-      <p class="lede blend">Switch your Mac’s appearance from the menu bar. Add Dusk for Chrome separately to darken websites that stay light.</p>
-      <a class="add hero-get" href="#editions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Get Dusk</a>
+      <p class="lede blend">Switch your Mac and apps like Notes. Add Dusk for Chrome to darken websites like Google Docs.</p>
+      <div class="hero-get">
+        <p class="get"><a class="add" href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11m0 0-4.5-4.5M12 14.5l4.5-4.5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Download for Mac</a><span class="get-note blend">Direct download · Free</span></p>
+        <p class="get"><a class="add" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>Add to Chrome</a><span class="get-note blend">Chrome Web Store · Free</span></p>
+      </div>
       <p class="phone-handoff blend"><a href="#chrome-desktop" data-share-page>On a phone? Send this page to your computer</a></p>
     </div>
 
@@ -87,6 +79,46 @@
     <div class="knob" id="dusk-knob"><svg viewBox="0 0 60 60" aria-hidden="true"><defs><linearGradient id="sun" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd97c"/><stop offset="1" stop-color="#fdbc59"/></linearGradient><linearGradient id="moon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9ecfa"/><stop offset="1" stop-color="#d2d8f2"/></linearGradient></defs><circle cx="30" cy="30" r="30" fill="#1a1d45"/><path d="M30 3.5a26.5 26.5 0 0 0 0 53z" fill="url(#sun)"/><path d="M30 3.5a26.5 26.5 0 0 1 0 53z" fill="url(#moon)"/><path d="M21 21l-9 9 9 9M39 21l9 9-9 9" fill="none" stroke="#1a1d45" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
   </div>
 
+  <section id="why" class="band-tint" aria-labelledby="why-title">
+    <div class="wrap">
+      <h2 id="why-title">From Notes to Google Docs</h2>
+      <p class="section-lede">Dusk for Mac changes your Mac and apps that follow its appearance. Add Dusk for Chrome for websites. To use them together, choose <strong>Device</strong> in Chrome and <strong>Follow system</strong> in Dusk for Chrome.</p>
+      <figure class="connect" id="connect" data-mode="dark">
+        <div class="connect-hub">
+          <p class="connect-name">Dusk for Mac</p>
+          <div class="connect-switch" role="group" aria-label="Show the illustration in">
+            <button type="button" data-set="light" aria-pressed="false">Light</button><button type="button" data-set="dark" aria-pressed="true">Dark</button>
+          </div>
+          <p class="connect-sub">changes your Mac’s appearance</p>
+        </div>
+        <svg class="connect-wires" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wire-base" d="M500 0V50M500 50H250V100M500 50H750V100"/>
+          <path class="wire" d="M500 0V50H250V100" pathLength="1"/>
+          <path class="wire" d="M500 0V50H750V100" pathLength="1"/>
+        </svg>
+        <div class="connect-ends">
+          <div class="connect-end">
+            <p class="connect-kind">Mac apps that follow your Mac</p>
+            <div class="mini mini-notes" aria-hidden="true">
+              <div class="mini-bar"><i></i><i></i><i></i><b>Notes</b></div>
+              <div class="mini-body"><div class="mini-side"><span></span><span></span><span></span></div><div class="mini-text"><span class="t"></span><span></span><span></span><span class="s"></span></div></div>
+            </div>
+            <p class="connect-say">Notes, a Mac app</p>
+          </div>
+          <div class="connect-end">
+            <p class="connect-kind">Websites in Chrome, with Dusk for Chrome</p>
+            <div class="mini mini-docs" aria-hidden="true">
+              <div class="mini-bar"><i></i><i></i><i></i><b>Google Docs</b></div>
+              <div class="mini-body"><div class="mini-page"><span class="t"></span><span></span><span></span><span class="s"></span></div></div>
+            </div>
+            <p class="connect-say">Google Docs, a website</p>
+          </div>
+        </div>
+        <figcaption>An illustration of apps and websites following the same appearance, not a screenshot. Results vary by app and site: see <a href="#honest">what Dusk cannot do</a>.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section id="editions" aria-labelledby="editions-title">
     <div class="wrap">
       <h2 id="editions-title">Get Dusk</h2>
@@ -123,25 +155,6 @@
     </div>
   </section>
 
-  <section id="why" class="band-tint" aria-labelledby="why-title">
-    <div class="wrap">
-      <h2 id="why-title">Why Dusk has two parts</h2>
-      <ul class="ways">
-        <li>
-          <h3>Your Mac's dark mode</h3>
-          <div class="cells"><p class="cell on">Your Mac apps</p><p class="cell off">Not websites that have no dark mode</p></div>
-        </li>
-        <li>
-          <h3>A dark mode browser extension</h3>
-          <div class="cells"><p class="cell off">Not your Mac apps</p><p class="cell on">Websites</p></div>
-        </li>
-        <li class="ways-dusk">
-          <h3>Dusk</h3>
-          <div class="cells"><p class="cell on both">Both, with Dusk for Mac and Dusk for Chrome <svg class="mascot" aria-hidden="true"><use href="#moon-mascot"/></svg></p></div>
-        </li>
-      </ul>
-    </div>
-  </section>
 
   <section id="how" aria-labelledby="how-title">
     <div class="wrap">
@@ -289,6 +302,7 @@
   </div>
 </footer>
 <script defer src="js/slider.js"></script>
+<script defer src="js/connect.js"></script>
 <script defer src="js/page-handoff.js"></script>
 </body>
 </html>

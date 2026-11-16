@@ -45,7 +45,10 @@ html { scroll-behavior: smooth; scroll-padding-top: 16px; }
            font-size: clamp(44px, 5.7vw, 92px); font-weight: 600; line-height: 1.02; letter-spacing: -.022em; text-wrap: initial; }
 .couplet .q { text-align: right; }
 .lede { grid-column: 1 / -1; justify-self: center; max-width: 34em; overflow-wrap: anywhere; margin: clamp(12px, 1.9vh, 20px) 0 clamp(14px, 2.1vh, 22px); font-size: clamp(18px, 1.5vw, 21px); line-height: 1.35; text-align: center; text-wrap: balance; }
-.hero-get { grid-column: 1 / -1; justify-self: center; }
+/* The two downloads, side by side across the line. Each says where it comes from, under it. */
+.hero-get { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 18px; }
+.get { display: grid; justify-items: center; gap: 6px; margin: 0; }
+.get-note { font-size: var(--fs-fine); line-height: 1.3; }
 .phone-handoff { display: none; grid-column: 1 / -1; margin: 14px 0 0; text-align: center; font-size: .875rem; }
 .phone-handoff a { display: inline-flex; align-items: center; min-height: 44px; }
 
@@ -132,18 +135,59 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .handoff p { margin: 0; color: var(--muted); }
 .handoff .page-handoff p:first-of-type { font-size: var(--fs-small); }
 
-/* The comparison: a covered cell is dark, an uncovered one stays white, which is the whole point */
-.ways { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
-.ways li { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 8px var(--gap); align-items: center; }
-.ways h3 { margin: 0; font-size: var(--fs-title); }
-.cells { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 2px; border-radius: var(--r-img); overflow: hidden; box-shadow: 0 0 0 1px var(--line); }
-.cell { display: flex; align-items: center; min-height: 66px; margin: 0; padding: 12px 18px; font-size: var(--fs-body); line-height: 1.25; font-weight: 500; overflow-wrap: anywhere; }
-.cell.on { background: var(--night); color: var(--moon); }
-.cell.off { background: #fff; color: #1a1d45; }
-@media (prefers-color-scheme: dark) { .cell.on { background: var(--night-deep); } }
-.cell.both { justify-content: space-between; gap: 12px; color: #fff; font-size: var(--fs-title); font-weight: 600; }
-.mascot { display: block; flex: none; }
-.cell .mascot { width: 54px; height: 54px; margin-block: -6px; }
+/* How the two parts connect: an illustration, not a capture. Dusk for Mac at the top, a line to each thing that follows
+   the Mac's appearance. The ends are drawn in CSS so nobody can mistake them for screenshots.
+   Motion is one automatic play only (.playing): the ember lines draw outward and the windows change after them.
+   The visitor's own choices change it at once. Without js/connect.js it is a still picture, in Dark. */
+.connect { max-width: 880px; margin: 0 auto; }
+.connect-hub { display: grid; justify-items: center; gap: 8px; text-align: center; }
+.connect-hub p { margin: 0; }
+.connect-name { font-size: var(--fs-title); font-weight: 600; line-height: 1.2; }
+.connect-sub { color: var(--muted); font-size: var(--fs-small); }
+.connect-switch { display: none; padding: 3px; border-radius: var(--r-pill); background: var(--bg); box-shadow: inset 0 0 0 1.5px var(--line); }
+.connect.is-live .connect-switch { display: inline-flex; }
+.connect-switch button { min-width: 88px; min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--r-pill); background: none; color: var(--ink); font: inherit; font-size: var(--fs-small); font-weight: 600; cursor: pointer;
+                         transition: background-color .15s ease, color .15s ease; }
+.connect-switch button[aria-pressed="true"] { background: var(--night); color: var(--moon); }
+@media (prefers-color-scheme: dark) { .connect-switch button[aria-pressed="true"] { background: var(--ember); color: var(--night); } }
+@media (hover: hover) and (pointer: fine) { .connect-switch button[aria-pressed="false"]:hover { background: var(--card); } }
+.connect-switch button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.connect-wires { display: block; width: 100%; height: clamp(44px, 6vw, 64px); margin-top: 12px; overflow: visible; }
+.connect-wires path { fill: none; stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.wire-base { stroke: var(--line); }
+.wire { stroke: var(--ember); stroke-dasharray: 1; stroke-dashoffset: 0; }
+.connect.is-live .wire { stroke-dashoffset: 1; }
+.connect.is-live.drawn .wire { stroke-dashoffset: 0; }
+.connect.playing .wire { transition: stroke-dashoffset .5s var(--ease-out); }
+
+/* The two ends share rows, so the pictures sit on one line however the labels wrap. Each column centers on 25% and
+   75% of the width, where the lines land: padding, not a grid gap, keeps those centers exact. */
+.connect-ends { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto; }
+.connect-end { display: grid; grid-row: span 3; grid-template-rows: subgrid; justify-items: center; row-gap: 10px; padding: 10px calc(var(--gap) / 2) 0; text-align: center; }
+.connect-end p { margin: 0; }
+.connect-kind { font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+.connect-say { color: var(--muted); font-size: var(--fs-small); }
+.connect figcaption { max-width: 62ch; margin: 22px auto 0; color: var(--muted); font-size: var(--fs-fine); line-height: 1.45; text-align: center; text-wrap: balance; }
+
+/* The little windows. Light and dark are their own colors, not the page's, since they show the Mac's look. */
+.mini { --w: #ffffff; --bar: #e9eaf0; --ln: #c9ccdc; --hd: #4a4e72; --side: #f4f4f7; --page: #ffffff; --desk: #e3e5ee;
+        width: 100%; max-width: 340px; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 10px; background: var(--w);
+        box-shadow: 0 0 0 1px rgba(26,29,69,.16), 0 16px 36px -22px rgba(26,29,69,.55); display: grid; grid-template-rows: auto 1fr; text-align: left; }
+.connect[data-mode="dark"] .mini { --w: #1f2024; --bar: #2d2e33; --ln: #5f6274; --hd: #d9dbe7; --side: #26272c; --page: #141416; --desk: #2a2b30; }
+.mini-bar { display: flex; align-items: center; gap: 5px; padding: 7px 10px; background: var(--bar); }
+.mini-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--ln); }
+.mini-bar b { margin-left: 6px; color: var(--hd); font-size: .75rem; font-weight: 600; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-body { display: grid; min-height: 0; }
+.mini-notes .mini-body { grid-template-columns: 34% 1fr; }
+.mini-side { display: grid; align-content: start; gap: 8px; padding: 12px 10px; background: var(--side); }
+.mini-text, .mini-page { display: grid; align-content: start; gap: 9px; padding: 14px 14px; }
+.mini-docs .mini-body { padding: 10px 16px 0; background: var(--desk); }
+.mini-page { background: var(--page); box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
+.mini span { display: block; height: 6px; border-radius: 3px; background: var(--ln); }
+.mini span.t { width: 62%; height: 9px; background: var(--hd); }
+.mini span.s { width: 48%; }
+.connect.playing :is(.mini, .mini-bar, .mini-side, .mini-page, .mini-body, .mini span, .mini-bar i, .mini-bar b) { transition: background-color .3s ease .18s, color .3s ease .18s; }
 
 /* How it works: a real sequence, so real numbers */
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px var(--gap); counter-reset: step; list-style: none; margin: 0; padding: 0; }
@@ -231,9 +275,8 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   button.side { min-height: 44px; }
   .panes { aspect-ratio: 960 / 1000; }
   .panel { --panel: 74%; top: 4%; }
-  .ways li { grid-template-columns: minmax(0, 1fr); }
-  .cell { min-height: 58px; padding: 10px 12px; font-size: var(--fs-small); }
-  .cell.both { font-size: 1.1875rem; }
+  .connect-end { padding-inline: 8px; }
+  .connect-kind { font-size: var(--fs-small); }
   .steps, .feature, .feature-pair, .limits, .private { grid-template-columns: minmax(0, 1fr); }
   .feature-pair { row-gap: 44px; }
   .feature-pair .feature { row-gap: 20px; }
@@ -245,6 +288,11 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   .home header.top { flex-direction: column; align-items: flex-start; padding-block: 8px 0; }
   .home header.top nav { justify-content: flex-start; }
   .home header.top nav a.nav-narrow { display: none; }
+  /* Three links wrapped to a second row at 320px and ran into the headline. Dusk for Chrome stays in the hero
+     (Add to Chrome) and the footer, so phones keep two links on one row. */
+  .home header.top nav { flex-wrap: nowrap; }
+  .home header.top nav a { white-space: nowrap; }
+  .home header.top nav a.nav-chrome { display: none; }
   .dusk { padding-top: 110px; }
 }
 
@@ -256,6 +304,7 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .add { transition: none; }
+  .connect-switch button, .connect.playing .wire, .connect.playing :is(.mini, .mini-bar, .mini-side, .mini-page, .mini-body, .mini span, .mini-bar i, .mini-bar b) { transition: none; }
 }
 
 @media (forced-colors: active) {
@@ -263,8 +312,8 @@ button.side:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
   .blend, .home .brand span, .home header.top nav a, .sites label { mix-blend-mode: normal; color: CanvasText; }
   .sites label:has(input:checked) { outline: 2px solid Highlight; }
   .add { border: 2px solid ButtonText; }
-  .band-night, .cell.on, .cell.off { forced-color-adjust: auto; }
-  .cells { gap: 0; }
-  .cell { border: 1px solid CanvasText; }
+  .band-night { forced-color-adjust: auto; }
+  .connect-switch button[aria-pressed="true"] { outline: 2px solid Highlight; }
+  .mini { border: 1px solid CanvasText; }
   .photo::after { border-left-color: Highlight; }
 }
