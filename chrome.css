@@ -1,3 +1,5 @@
+/* Dusk for Chrome's page. Tokens, type scale, buttons and the footer come from style.css; this file is the page's
+   own layout: a night band for the comparison, a light page below it, and the night footer. */
 .chrome-page {
   --moonlight: #e9ecfa;
   --night-muted: #c2c6e3;
@@ -21,8 +23,7 @@
   min-height: 68px;
 }
 
-.chrome-page .brand,
-.chrome-night nav a:hover {
+.chrome-night .brand {
   color: #fff;
 }
 
@@ -30,8 +31,15 @@
   color: var(--moonlight);
 }
 
-.chrome-night nav a:hover {
-  text-decoration: underline;
+.chrome-night nav a:active {
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chrome-night nav a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 }
 
 .chrome-night a:focus-visible {
@@ -62,32 +70,33 @@
   line-height: 1.4;
 }
 
-.chrome-install {
-  background: var(--ember);
-  color: var(--night);
-  font-weight: 650;
-  text-align: center;
-}
-
-.chrome-install:hover {
-  background: #ffd18a;
-}
-
-.chrome-intro .chrome-install:focus-visible {
+.chrome-intro .btn.primary:focus-visible {
   outline-color: #fff;
 }
 
-.chrome-note {
-  margin: 9px 0 0;
-  color: var(--night-muted);
-  font-size: .875rem;
+.chrome-copy .facts {
+  color: var(--moonlight);
 }
 
+.chrome-note {
+  margin: 2px 0 0;
+  color: var(--night-muted);
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}
+
+/* Shown to phones only, like the box it leads to (see the last media query). */
 .chrome-phone {
   display: none;
+  margin: 6px 0 0;
+  font-size: var(--fs-small);
+}
+
+.chrome-phone a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--moonlight);
-  margin-top: 12px;
-  font-size: .9375rem;
 }
 
 .chrome-demo {
@@ -105,12 +114,21 @@
   background: #23275a;
   border: 1px solid var(--night-line);
   border-radius: 14px 14px 0 0;
-  font-size: .9375rem;
+  font-size: var(--fs-small);
   font-weight: 500;
+}
+
+/* The page's name gives way to the two buttons: one line, cut with an ellipsis. */
+.chrome-demo-bar > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .chrome-controls:not([hidden]) {
   display: flex;
+  flex: none;
   gap: 4px;
 }
 
@@ -125,7 +143,13 @@
   cursor: pointer;
 }
 
-.chrome-controls button:hover {
+@media (hover: hover) and (pointer: fine) {
+  .chrome-controls button:hover {
+    border-color: var(--night-muted);
+  }
+}
+
+.chrome-controls button:active {
   border-color: var(--night-muted);
 }
 
@@ -237,13 +261,14 @@
 }
 
 .chrome-demo figcaption {
-  margin-top: 10px;
+  margin-top: 12px;
   color: var(--night-muted);
-  font-size: .8125rem;
+  font-size: var(--fs-fine);
+  line-height: 1.45;
 }
 
 .chrome-demo figcaption a,
-.chrome-footer a {
+.chrome-credits a {
   color: inherit;
 }
 
@@ -259,7 +284,7 @@
 .chrome-setup {
   border: 0;
   background: var(--card);
-  padding-block: clamp(42px, 7vw, 84px);
+  padding-block: var(--section);
 }
 
 .chrome-setup-grid {
@@ -270,11 +295,12 @@
 }
 
 .chrome-content h2 {
-  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  font-size: var(--fs-display);
 }
 
 .chrome-steps {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 22px;
   max-width: 48ch;
   margin: 25px 0 0;
@@ -286,14 +312,17 @@
 }
 
 .chrome-steps li::marker {
-  color: var(--accent);
-  font-size: 1.2em;
-  font-weight: 650;
+  color: var(--mark);
+  font-weight: 600;
+}
+
+.chrome-steps li::marker {
+  font-size: var(--fs-title);
 }
 
 .chrome-steps h3 {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: var(--fs-title);
 }
 
 .chrome-steps p,
@@ -312,22 +341,22 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: 0 8px 28px rgba(26, 29, 69, .12);
+  border-radius: var(--r-img);
+  box-shadow: var(--shot-shadow);
 }
 
 .chrome-popup figcaption {
-  margin-top: 10px;
+  margin-top: 12px;
   color: var(--muted);
-  font-size: .8125rem;
+  font-size: var(--fs-fine);
+  line-height: 1.45;
 }
 
 .chrome-faq {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr);
   gap: 12px clamp(24px, 6vw, 90px);
-  padding-block: clamp(42px, 7vw, 84px);
+  padding-block: var(--section);
   border: 0;
 }
 
@@ -350,55 +379,92 @@
 
 .chrome-faq summary {
   padding-block: 13px;
-  font-weight: 550;
+  font-weight: 600;
 }
 
 .chrome-faq details p {
-  margin: 0 0 16px;
+  margin: 0;
+  padding-bottom: 16px;
   color: var(--muted);
 }
 
+/* An answer opens in place instead of jumping. Only where the browser can size to content; a plain toggle elsewhere,
+   so a browser that cannot animate the height does not get the clipping either. The clip keeps 6px of room for the
+   focus ring of a link on the answer's first line or at the start of a line (3px ring, 3px offset). */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (interpolate-size: allow-keywords) {
+    .chrome-faq {
+      interpolate-size: allow-keywords;
+    }
+
+    .chrome-faq details::details-content {
+      block-size: 0;
+      overflow: clip;
+      overflow-clip-margin: 6px;
+      transition: block-size .25s var(--ease-out), content-visibility .25s allow-discrete;
+    }
+
+    .chrome-faq details[open]::details-content {
+      block-size: auto;
+    }
+  }
+}
+
+/* Phone to computer: hidden on a computer, where there is nothing to hand off. The slot around it stays in the page
+   so that #save-for-desktop always has somewhere to land. */
+.handoff-slot {
+  scroll-margin-top: 20px;
+}
+
 .chrome-save {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   gap: 18px 32px;
-  padding-block: clamp(24px, 4vw, 42px) clamp(42px, 6vw, 70px);
+  padding-block: 0 var(--section);
+  border: 0;
+}
+
+.chrome-save h2 {
+  font-size: var(--fs-title);
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+
+.chrome-save > * {
+  min-width: 0;
 }
 
 .chrome-save p {
   max-width: 49ch;
 }
 
-.chrome-footer {
-  border: 0;
+.chrome-credits {
+  padding-block: 8px 20px;
   color: var(--night-muted);
+  font-size: var(--fs-small);
 }
 
-.chrome-footer details {
-  flex-basis: 100%;
+.chrome-credits summary {
+  padding-block: 10px;
 }
 
-.chrome-footer details p {
+.chrome-credits details p {
   max-width: 66ch;
-  margin-bottom: 0;
+  margin: 0 0 12px;
 }
 
-.chrome-footer summary:focus-visible {
+.chrome-credits summary:focus-visible {
   outline-color: var(--ember);
 }
 
 @media (max-width: 860px) {
   .chrome-intro, .chrome-setup-grid, .chrome-faq {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .chrome-intro {
     gap: 26px;
-  }
-
-  .chrome-phone {
-    display: inline-block;
   }
 
   .chrome-popup {
@@ -422,13 +488,23 @@
   }
 
   .chrome-save {
-    align-items: flex-start;
+    align-items: stretch;
     flex-direction: column;
   }
 }
 
+@media (max-width: 760px), (pointer: coarse) {
+  .chrome-phone {
+    display: block;
+  }
+
+  .chrome-save {
+    display: flex;
+  }
+}
+
 @media (forced-colors: active) {
-  .chrome-install, .chrome-controls button {
+  .chrome-controls button {
     border: 1px solid ButtonText;
   }
 

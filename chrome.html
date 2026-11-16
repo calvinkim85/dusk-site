@@ -12,6 +12,11 @@
 <meta property="og:url" content="https://calvinkim85.github.io/dusk-site/chrome.html">
 <meta property="og:title" content="Dusk for Chrome | Dark mode for websites">
 <meta property="og:description" content="Darken bright websites in desktop Chrome, with a choice for each site. Free, with no Dusk account.">
+<meta property="og:image" content="https://calvinkim85.github.io/dusk-site/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A headline reading: Your Mac apps and websites. One switch. One click. Below it, a Google Doc and Dusk's switch, light on the left of a dividing line and dark on the right.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="img/icon.png">
 <link rel="preload" href="fonts/outfit-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -25,7 +30,7 @@
     <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
     <nav aria-label="Main navigation">
       <a href="#setup">Set up</a>
-      <a href="chrome-help.html">Chrome help</a>
+      <a href="chrome-help.html">Help</a>
       <a href="./#mac">Dusk for Mac</a>
     </nav>
   </header>
@@ -35,9 +40,10 @@
       <div class="chrome-copy">
         <h1>Dark browser.<br>Bright page?</h1>
         <p class="lede">Dusk for Chrome darkens supported websites that stay light, with a choice for each site.</p>
-        <a class="btn chrome-install" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
-        <p class="chrome-note">Free for desktop Chrome. Version 0.3.1. No Dusk account.</p>
-        <a class="chrome-phone" href="#save-for-desktop">On a phone? Save this for your computer</a>
+        <a class="btn primary" href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add to Chrome</a>
+        <p class="facts" data-facts="chrome">Free · Version 0.3.1</p>
+        <p class="chrome-note">For Chrome on a computer. No account. No analytics.</p>
+        <p class="chrome-phone"><a href="#save-for-desktop" data-share-page>On a phone? Send this page to your computer</a></p>
       </div>
 
       <figure class="chrome-demo">
@@ -62,7 +68,7 @@
         </div>
         <figcaption id="chrome-comparison-note">
           <span class="chrome-drag-hint">Drag to compare or choose Light or Dark.</span>
-          Captured with Dusk for Chrome 0.2.5. <a href="#credits">Screenshot credits</a>
+          A Wikipedia article, captured with Dusk for Chrome 0.2.5, an earlier version. <a href="#credits">Screenshot credits</a>
         </figcaption>
       </figure>
     </div>
@@ -80,9 +86,9 @@
           <figure class="chrome-popup">
             <picture>
               <source media="(prefers-color-scheme: dark)" srcset="img/popup-dark.webp">
-              <img src="img/popup-light.webp" width="736" height="500" alt="Dusk’s popup showing website appearance, choices for the current site and the Restore this website button." loading="lazy">
+              <img src="img/popup-light.webp" width="736" height="500" alt="Dusk’s popup from version 0.2.5, showing website appearance, choices for the current site and the Restore this website button." loading="lazy">
             </picture>
-            <figcaption>Earlier Dusk popup, showing the per-site controls.</figcaption>
+            <figcaption>The popup from Dusk for Chrome 0.2.5, an earlier version, shown with sample data. The current popup adds Scheduled.</figcaption>
           </figure>
         </div>
       </section>
@@ -96,51 +102,82 @@
               <p>Yes. In the popup, choose <strong>Off</strong> for that site, or click <strong>Restore this website</strong> if the page looks wrong. You can undo a restore from the popup.</p>
             </details>
             <details>
-              <summary>Will photos change colour?</summary>
-              <p>Dusk aims to keep photos and video in their original colours. Results vary by page, and pictures embedded in Google Docs can change along with the paper.</p>
+              <summary>Will photos change color?</summary>
+              <p>Dusk aims to keep photos and video in their original colors. Results vary by page, and pictures embedded in Google Docs can change along with the paper.</p>
             </details>
             <details>
               <summary>Why did a page stay light?</summary>
-              <p>Some websites keep their own colours or only darken in part. Chrome Settings, the Chrome Web Store and Chrome’s PDF viewer keep their original appearance. Visit <a href="chrome-help.html">Chrome help</a> for troubleshooting.</p>
+              <p>Some websites keep their own colors or only darken in part. Chrome Settings, the Chrome Web Store and Chrome’s PDF viewer keep their original appearance. Visit <a href="chrome-help.html">Chrome help</a> for troubleshooting.</p>
             </details>
             <details>
               <summary>Do I need the Mac app?</summary>
               <p>Dusk for Chrome works by itself in desktop Chrome. The separate <a href="./#mac">Dusk for Mac</a> app switches your Mac and the apps that follow its appearance.</p>
             </details>
             <details>
-              <summary>Where does Dusk process page colours?</summary>
-              <p>Dusk processes appearance on your computer. It may request images again from their existing hosts to check their colours. See the <a href="privacy.html">privacy policy</a> for permissions and what Dusk stores.</p>
+              <summary>Where does Dusk process page colors?</summary>
+              <p>Dusk processes appearance on your computer. It may request images again from their existing hosts to check their colors. See the <a href="privacy.html">privacy policy</a> for permissions and what Dusk stores.</p>
             </details>
           </div>
         </section>
 
-        <section class="chrome-save" id="save-for-desktop" aria-labelledby="save-title">
-          <div>
-            <h2 id="save-title">Reading on your phone?</h2>
-            <p>Copy or bookmark this page for later. On your computer, search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store.</p>
-          </div>
-          <div class="page-handoff" data-page-handoff>
-            <p><a href="https://calvinkim85.github.io/dusk-site/chrome.html" data-page-link>https://calvinkim85.github.io/dusk-site/chrome.html</a></p>
-            <button class="btn ghost" type="button" data-copy-page hidden>Copy this page link</button>
-            <p role="status" data-copy-status></p>
-          </div>
-        </section>
+        <div id="save-for-desktop" class="handoff-slot">
+          <section class="chrome-save" aria-labelledby="save-title">
+            <div>
+              <h2 id="save-title">Reading on your phone?</h2>
+              <p>Dusk for Chrome installs in Chrome on a computer, not on a phone. Send this page to yourself, or search for <strong>Dusk for Chrome: Automatic Dark Mode</strong> in the Chrome Web Store on your computer.</p>
+            </div>
+            <div class="page-handoff" data-page-handoff>
+              <button class="btn ghost" type="button" data-copy-page hidden>Copy this page link</button>
+              <p><a href="https://calvinkim85.github.io/dusk-site/chrome.html" data-page-link>https://calvinkim85.github.io/dusk-site/chrome.html</a></p>
+              <p role="status" data-copy-status></p>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer class="wrap chrome-footer">
-    <span>Dusk for Chrome</span>
-    <nav aria-label="Footer">
-      <a href="chrome-help.html">Chrome help</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+  <div class="wrap chrome-credits">
     <details id="credits">
       <summary>Screenshot credits</summary>
-      <p><a href="https://en.wikipedia.org/wiki/Dusk">“Dusk” article</a> by Wikipedia contributors. <a href="https://commons.wikimedia.org/wiki/File:Landers_in_the_Mojave_Desert_at_dusk,_looking_west_from_Joshua_Tree,_California_USA.jpg">Landers at dusk photo</a> by Jessie Eastland. The cropped and recoloured captures are under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+      <p><a href="https://en.wikipedia.org/wiki/Dusk">“Dusk” article</a> by Wikipedia contributors. <a href="https://commons.wikimedia.org/wiki/File:Landers_in_the_Mojave_Desert_at_dusk,_looking_west_from_Joshua_Tree,_California_USA.jpg">Landers at dusk photo</a> by Jessie Eastland. The cropped and recolored captures are under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
     </details>
-  </footer>
+  </div>
 </div>
+<footer class="site-footer on-night">
+  <div class="wrap">
+    <nav class="foot-grid" aria-label="Footer">
+      <div>
+        <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+        <p class="foot-made">Made by Monomad Studio</p>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-mac">Dusk for Mac</p>
+        <ul aria-labelledby="foot-mac">
+          <li><a href="./#mac">Get Dusk for Mac</a></li>
+          <li><a href="mac-app-store.html">App Store edition</a></li>
+          <li><a href="mac-app-store-support.html">App Store support</a></li>
+          <li><a href="mac-app-store-privacy.html">App Store privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-chrome">Dusk for Chrome</p>
+        <ul aria-labelledby="foot-chrome">
+          <li><a href="chrome.html">Get Dusk for Chrome</a></li>
+          <li><a href="chrome-help.html">Chrome help</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-dusk">Dusk</p>
+        <ul aria-labelledby="foot-dusk">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="chrome-help.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="foot-legal">Apple, Mac, macOS and App Store are trademarks of Apple Inc. Google, Chrome and Google Docs are trademarks of Google LLC. The websites shown are examples, and their names are trademarks of their owners. Dusk is not affiliated with, endorsed by or sponsored by any of them.</p>
+  </div>
+</footer>
 </body>
 </html>

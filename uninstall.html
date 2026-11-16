@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1d45" media="(prefers-color-scheme: dark)">
 <title>Dusk for Chrome: removed</title>
 <meta name="description" content="Dusk for Chrome has been removed. One optional question, how to get help, and how to add it again.">
 <meta name="robots" content="noindex">
@@ -12,8 +15,8 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
-    <nav><a href="./">Home</a><a href="chrome-help.html">Chrome help</a></nav>
+    <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+    <nav aria-label="Main navigation"><a href="./">Home</a><a href="chrome-help.html">Chrome help</a></nav>
   </header>
   <main class="doc">
     <h1>Dusk for Chrome was removed</h1>
@@ -36,7 +39,41 @@
     <h2>Changed your mind?</h2>
     <p><a href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Add Dusk to Chrome again</a> from the Chrome Web Store. It starts fresh, on Follow system.</p>
   </main>
-  <footer><span>Dusk for Chrome</span><span><a href="./">Home</a> · <a href="chrome-help.html">Chrome help</a> · <a href="privacy.html">Privacy</a></span></footer>
 </div>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="foot-grid" aria-label="Footer">
+      <div>
+        <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+        <p class="foot-made">Made by Monomad Studio</p>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-mac">Dusk for Mac</p>
+        <ul aria-labelledby="foot-mac">
+          <li><a href="./#mac">Get Dusk for Mac</a></li>
+          <li><a href="mac-app-store.html">App Store edition</a></li>
+          <li><a href="mac-app-store-support.html">App Store support</a></li>
+          <li><a href="mac-app-store-privacy.html">App Store privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-chrome">Dusk for Chrome</p>
+        <ul aria-labelledby="foot-chrome">
+          <li><a href="chrome.html">Get Dusk for Chrome</a></li>
+          <li><a href="chrome-help.html">Chrome help</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-dusk">Dusk</p>
+        <ul aria-labelledby="foot-dusk">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="chrome-help.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="foot-legal">Apple, Mac, macOS and App Store are trademarks of Apple Inc. Google, Chrome and Google Docs are trademarks of Google LLC. The websites shown are examples, and their names are trademarks of their owners. Dusk is not affiliated with, endorsed by or sponsored by any of them.</p>
+  </div>
+</footer>
 </body>
 </html>

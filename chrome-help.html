@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1d45" media="(prefers-color-scheme: dark)">
 <title>Dusk for Chrome: help</title>
 <meta name="description" content="Troubleshooting for Dusk for Chrome: a site that looks wrong, pages that stay light or dark, Google Docs and Sheets, Incognito, problem reports and uninstalling.">
 <link rel="icon" href="img/icon.png">
@@ -11,8 +14,8 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
-    <nav><a href="./">Home</a><a href="privacy.html">Privacy</a></nav>
+    <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+    <nav aria-label="Main navigation"><a href="./">Home</a><a href="privacy.html">Privacy</a></nav>
   </header>
   <main class="doc">
     <h1>Dusk for Chrome: help</h1>
@@ -31,8 +34,8 @@
     <p><strong>Keyboard shortcut.</strong> <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> on a Mac (<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> on Windows and Linux) turns Dusk off for the site you are on, like <strong>Restore this website</strong>, and on again, like <strong>Undo restore</strong>. <strong>Turn Always dark on or off</strong> has no key until you give it one. To change either, open <code>chrome://extensions/shortcuts</code>. If another extension already uses the key, Chrome leaves Dusk’s without one.</p>
     <p><strong>Page colors</strong> chooses how Dusk changes this site:</p>
     <ul>
-      <li><strong>Preserve colors (default)</strong> changes grey backgrounds, and the colour of text that would otherwise be hard to read. It aims to preserve photos, videos and coloured areas; results vary by site. If it cannot change a page safely, for example because the page’s whole background is a colour, the page keeps its original look and the popup says so.</li>
-      <li><strong>Standard</strong> is a compatibility option for one site. It flips the colours of the whole page, then flips photos, videos and embedded frames back. It may work where Preserve colors can’t, but it can change the colours in pictures. Dusk never switches to Standard by itself.</li>
+      <li><strong>Preserve colors (default)</strong> changes gray backgrounds, and the color of text that would otherwise be hard to read. It aims to preserve photos, videos and colored areas; results vary by site. If it cannot change a page safely, for example because the page’s whole background is a color, the page keeps its original look and the popup says so.</li>
+      <li><strong>Standard</strong> is a compatibility option for one site. It flips the colors of the whole page, then flips photos, videos and embedded frames back. It may work where Preserve colors can’t, but it can change the colors in pictures. Dusk never switches to Standard by itself.</li>
     </ul>
 
     <h2>A page stays dark in Light, or light in Dark</h2>
@@ -42,12 +45,12 @@
       <li><strong>This site:</strong> <strong>Dark</strong>, <strong>Light</strong> and <strong>Off</strong> apply whatever your computer shows. To keep a dark site dark while your computer is light, choose <strong>Dark</strong> for it.</li>
       <li><strong>Chrome’s own setting.</strong> <strong>Follow system</strong> follows the light or dark setting Chrome gives websites. If Chrome’s Settings → Appearance → Mode is Light or Dark instead of Device, websites get that, whatever your computer shows. When Chrome is telling websites to be light and the page is unchanged, the popup says so; <strong>Try dark on this site</strong> sets <strong>Dark</strong> for that site.</li>
       <li><strong>The line under Page colors.</strong> “Preserve colors can’t change this page” means the page keeps its original look; <strong>Standard</strong> may work there. “Original appearance restored because controls may be unreadable” means Dusk stepped back; it tries again when you reload the page, switch appearance or change a Dusk setting. For “Page status not verified”, reload the tab once.</li>
-      <li><strong>Things that keep their colour by design.</strong> Preserve colors aims to leave photos, videos, embedded video players and coloured areas such as a brand’s banner in their original colours; results vary by site. Dusk changes grey surfaces and text, so some pages stay partly light in Dark. In Light, photo-heavy pages, such as streaming and game landing pages, may stay mostly dark. If Dusk cannot tell whether a page is light or dark, it leaves the page alone rather than guess.</li>
+      <li><strong>Things that keep their color by design.</strong> Preserve colors aims to leave photos, videos, embedded video players and colored areas such as a brand’s banner in their original colors; results vary by site. Dusk changes gray surfaces and text, so some pages stay partly light in Dark. In Light, photo-heavy pages, such as streaming and game landing pages, may stay mostly dark. If Dusk cannot tell whether a page is light or dark, it leaves the page alone rather than guess.</li>
       <li><strong>Pages no extension can change.</strong> Chrome’s own pages, such as Settings and the Chrome Web Store, show “not a supported website” in the popup. PDFs and images open in Chrome’s own viewer are left as they are.</li>
     </ul>
 
     <h2>Google Docs and Sheets</h2>
-    <p>Docs draws each page, and Sheets its grid, as a picture rather than with ordinary page colours. With <strong>Preserve colors</strong>, Dusk darkens that paper along with the rest of the page. A picture inside a document is drawn on the same paper, so it changes colour with it. To see a document exactly as written, choose <strong>Off</strong> for <code>docs.google.com</code>; that one rule covers Docs, Sheets and Slides.</p>
+    <p>Docs draws each page, and Sheets its grid, as a picture rather than with ordinary page colors. With <strong>Preserve colors</strong>, Dusk darkens that paper along with the rest of the page. A picture inside a document is drawn on the same paper, so it changes color with it. To see a document exactly as written, choose <strong>Off</strong> for <code>docs.google.com</code>; that one rule covers Docs, Sheets and Slides.</p>
 
     <h2>Incognito</h2>
     <p>Chrome keeps extensions out of Incognito windows unless you allow it: open <code>chrome://extensions</code>, press <strong>Details</strong> under Dusk and turn on <strong>Allow in Incognito</strong>. Dusk then does not remember the sites you visit in those windows. Choices you make in the popup there, such as site rules, are saved and stay after the window closes.</p>
@@ -67,7 +70,41 @@
     <h2 id="contact">Contact</h2>
     <p>Email <a href="mailto:monomadstudio@gmail.com">monomadstudio@gmail.com</a>, or <a href="https://github.com/calvinkim85/dusk-site/issues">open an issue on GitHub</a>. Please do not send passwords or other sensitive information.</p>
   </main>
-  <footer><span>Dusk for Chrome</span><span><a href="./">Home</a> · <a href="chrome-help.html">Chrome help</a> · <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></span></footer>
 </div>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="foot-grid" aria-label="Footer">
+      <div>
+        <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+        <p class="foot-made">Made by Monomad Studio</p>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-mac">Dusk for Mac</p>
+        <ul aria-labelledby="foot-mac">
+          <li><a href="./#mac">Get Dusk for Mac</a></li>
+          <li><a href="mac-app-store.html">App Store edition</a></li>
+          <li><a href="mac-app-store-support.html">App Store support</a></li>
+          <li><a href="mac-app-store-privacy.html">App Store privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-chrome">Dusk for Chrome</p>
+        <ul aria-labelledby="foot-chrome">
+          <li><a href="chrome.html">Get Dusk for Chrome</a></li>
+          <li><a href="chrome-help.html">Chrome help</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-dusk">Dusk</p>
+        <ul aria-labelledby="foot-dusk">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="chrome-help.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="foot-legal">Apple, Mac, macOS and App Store are trademarks of Apple Inc. Google, Chrome and Google Docs are trademarks of Google LLC. The websites shown are examples, and their names are trademarks of their owners. Dusk is not affiliated with, endorsed by or sponsored by any of them.</p>
+  </div>
+</footer>
 </body>
 </html>

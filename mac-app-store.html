@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1d45" media="(prefers-color-scheme: dark)">
 <title>Dusk for Mac: Light, Dark and Auto</title>
 <meta name="description" content="Switch your Mac between Light and Dark from the menu bar, or choose your own daily hours. Learn about Dusk’s Mac App Store edition and its Apple Shortcuts setup.">
 <link rel="icon" href="img/icon.png">
@@ -11,7 +14,7 @@
 <body>
 <div class="wrap">
   <header class="top">
-    <a class="brand" href="./"><img src="img/icon.png" alt="">Dusk</a>
+    <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
     <nav aria-label="Main navigation"><a href="#setup">Setup</a><a href="mac-app-store-support.html">Support</a><a href="mac-app-store-privacy.html">Privacy</a></nav>
   </header>
   <main>
@@ -21,13 +24,17 @@
         <h1>Your Mac.<br>Your light.</h1>
         <p class="lede">Choose Light or Dark from your menu bar. Let Auto switch at the daily hours you choose.</p>
         <div class="cta">
-          <a class="btn primary" href="#setup">How setup works</a>
-          <a class="btn ghost" href="mac-app-store-support.html">Get support</a>
+          <a class="btn ghost" href="#setup">How setup works</a>
+          <a href="mac-app-store-support.html">Get support</a>
         </div>
         <p class="note">Coming to the Mac App Store. Not released yet.<br>Free · macOS 14 or later · Apple Shortcuts required.</p>
+        <div class="now">
+          <p>Want Dusk today? The direct-download edition is a separate build that does not use Apple Shortcuts. <a href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg">Download for Mac</a></p>
+          <p class="facts" data-facts="mac">Free · 1.0.5 · 4.9 MB · macOS 14 or later</p>
+        </div>
       </div>
       <div class="card">
-        <h3>In this edition</h3>
+        <h2 class="card-title">In this edition</h2>
         <ul class="plain">
           <li>Light, Dark and Auto from your menu bar</li>
           <li>A step-by-step guide for the two Apple Shortcuts it uses</li>
@@ -54,7 +61,7 @@
         <li><strong>Basic</strong>, the default: create one shortcut with a single <strong>Set Appearance</strong> action fixed to Light and another fixed to Dark (not Toggle), and save two distinct, exact names in Dusk. Optional <strong>Compatibility</strong> offers prepared shortcuts or manual setup under Troubleshoot. Both use System Events and require Allow Running Scripts in Shortcuts; macOS may also ask you to allow Shortcuts to control System Events. Only you can grant those permissions.</li>
         <li>Run each new shortcut once in Shortcuts and let it finish, confirm that in Dusk, then choose <strong>Test Light &amp; Dark</strong>. Dusk shows Setup complete only after both appearance changes and successful Shortcuts replies. Then choose your hours and turn on Auto.</li>
       </ol>
-      <p><a href="mac-app-store-support.html">Follow the full setup and troubleshooting guide →</a></p>
+      <p class="more"><a href="mac-app-store-support.html">Follow the full setup and troubleshooting guide</a></p>
     </section>
     <section aria-labelledby="expect">
       <h2 id="expect">Know what follows</h2>
@@ -70,15 +77,49 @@
     <section aria-labelledby="private">
       <h2 id="private">Your settings stay on your Mac</h2>
       <p class="sub">No Dusk account, ads, analytics or in-app purchases. The app makes no network requests. Apple delivers downloads and updates; your own shortcuts are separate workflows under your control. Report a problem shows you the whole report first; you copy it, or open a draft in your own email app and send it yourself.</p>
-      <p><a href="mac-app-store-privacy.html">Read the App Store edition’s privacy policy</a></p>
+      <p class="more"><a href="mac-app-store-privacy.html">Read the App Store edition’s privacy policy</a></p>
     </section>
     <section aria-labelledby="web">
       <h2 id="web">Looking for dark websites?</h2>
       <p class="sub">Dusk for Chrome is a separate extension. It can follow your browser’s appearance and offers its own website controls. It is not included in the Mac App Store download.</p>
-      <p><a href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Explore Dusk for Chrome</a> · <a href="./#editions">Compare all editions</a></p>
+      <p class="more"><a href="https://chromewebstore.google.com/detail/gbbmlagopacnaolgpffnemcipoieheba">Explore Dusk for Chrome</a><span class="sep" aria-hidden="true"> · </span><a href="./#editions">Compare all editions</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/calvinkim85/dusk-site/releases/download/v1.0.5/Dusk-1.0.5.dmg">Download the direct edition for Mac</a></p>
     </section>
   </main>
-  <footer><span>Dusk for Mac</span><span><a href="mac-app-store-support.html">Support</a> · <a href="mac-app-store-privacy.html">Privacy</a> · <a href="mailto:monomadstudio@gmail.com">Contact</a></span></footer>
 </div>
+<footer class="site-footer">
+  <div class="wrap">
+    <nav class="foot-grid" aria-label="Footer">
+      <div>
+        <a class="brand" href="./"><img src="img/icon.png" width="32" height="32" alt="">Dusk</a>
+        <p class="foot-made">Made by Monomad Studio</p>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-mac">Dusk for Mac</p>
+        <ul aria-labelledby="foot-mac">
+          <li><a href="./#mac">Get Dusk for Mac</a></li>
+          <li><a href="mac-app-store.html">App Store edition</a></li>
+          <li><a href="mac-app-store-support.html">App Store support</a></li>
+          <li><a href="mac-app-store-privacy.html">App Store privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-chrome">Dusk for Chrome</p>
+        <ul aria-labelledby="foot-chrome">
+          <li><a href="chrome.html">Get Dusk for Chrome</a></li>
+          <li><a href="chrome-help.html">Chrome help</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-title" id="foot-dusk">Dusk</p>
+        <ul aria-labelledby="foot-dusk">
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="chrome-help.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <p class="foot-legal">Apple, Mac, macOS and App Store are trademarks of Apple Inc. Google, Chrome and Google Docs are trademarks of Google LLC. The websites shown are examples, and their names are trademarks of their owners. Dusk is not affiliated with, endorsed by or sponsored by any of them.</p>
+  </div>
+</footer>
 </body>
 </html>
